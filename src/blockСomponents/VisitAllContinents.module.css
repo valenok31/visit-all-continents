@@ -1,0 +1,58 @@
+.item{
+    min-height: calc( 100vh - 100px);
+    background-color: rgb(27, 202, 255);
+    padding: 30px;
+}
+
+
+.city{
+    position: absolute;
+}
+
+.mov{
+    top: 300px;
+    left: 400px;
+}
+
+.ovb{
+    top: 500px;
+    left: 700px;
+}
+.tul{
+    top: 200px;
+    left: 900px;
+}
+
+.city__selected{
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+    background-color: #2fff00;
+}
+
+.city__selected:hover {
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+    background-color: rgba(47, 255, 0, 0.68);
+    cursor: pointer;
+}
+
+.city__no_selected{
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+    background-color: yellow;
+}
+
+.city__no_selected:hover {
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 0, 0.78);
+    cursor: pointer;
+}
+.world_map{
+    width: 1000px;
+    height: 500px;
+}
