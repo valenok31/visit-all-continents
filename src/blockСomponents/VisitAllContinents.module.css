@@ -53,6 +53,11 @@
     cursor: pointer;
 }
 .world_map{
+    display: inline-block;
     width: 1000px;
     height: 500px;
+}
+.continentsList{
+    display: inline-block;
+
 }
