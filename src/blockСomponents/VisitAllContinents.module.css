@@ -24,30 +24,30 @@
 }
 
 .city__selected{
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     border-radius: 30px;
-    background-color: #2fff00;
+    background-color: #0017ff;
 }
 
 .city__selected:hover {
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     border-radius: 30px;
     background-color: rgba(47, 255, 0, 0.68);
     cursor: pointer;
 }
 
 .city__no_selected{
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     border-radius: 30px;
-    background-color: yellow;
+    background-color: #ff3c00;
 }
 
 .city__no_selected:hover {
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     border-radius: 30px;
     background-color: rgba(255, 255, 0, 0.78);
     cursor: pointer;
