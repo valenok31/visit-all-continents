@@ -67,11 +67,9 @@ const VisitAllContinents = (props) => {
     const unique = (queueContinents) => {
         return Array.from(new Set(queueContinents));
     }
-let ret = unique(queueContinents).map(x => {
+let visitedContinents = unique(queueContinents).map(x => {
     return <div>{x}</div>
 });
-console.log(queueСities);
-console.log(unique(queueContinents));
 
     return <>
         <div className={style.item}>
@@ -79,12 +77,14 @@ console.log(unique(queueContinents));
             <img src={worldMap} alt='World Map' className={style.world_map}/>
             {CitiesInGame}
             <div className={style.continentsList}>
-                {ret}
+                {visitedContinents}
             </div>
         </div>
 {/*        <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 10 L 90 80" fill="transparent" stroke="black"/>
         </svg>*/}
+
+
         <button onClick={() => {
             setQueueСities([]);
             setTotalCost(0);
