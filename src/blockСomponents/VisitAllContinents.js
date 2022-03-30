@@ -59,8 +59,8 @@ const VisitAllContinents = (props) => {
                  title={props.getCityParameter(numberCity, 'title')}
                  className={(setIndexOf(a.name) != -1 ? style.city__selected : style.city__no_selected)}
                  onClick={() => choosingCityAdd(a.name, numberCity)}>
-                {setIndexOf(a.name) == -1 ? '' : `${setIndexOf(a.name) + 1}`}
             </div>
+            {setIndexOf(a.name) == -1 ? props.getCityParameter(numberCity, 'title') : `${setIndexOf(a.name) + 1}`}
         </div>
     });
 
@@ -82,7 +82,9 @@ console.log(unique(queueContinents));
                 {ret}
             </div>
         </div>
-
+{/*        <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 10 L 90 80" fill="transparent" stroke="black"/>
+        </svg>*/}
         <button onClick={() => {
             setQueueСities([]);
             setTotalCost(0);

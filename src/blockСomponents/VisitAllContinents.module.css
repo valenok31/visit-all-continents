@@ -7,6 +7,8 @@
 
 .city{
     position: absolute;
+font-size: 14px;
+
 }
 
 .mov{
@@ -28,6 +30,7 @@
     height: 10px;
     border-radius: 30px;
     background-color: #0017ff;
+    font-size: 18px;
 }
 
 .city__selected:hover {
