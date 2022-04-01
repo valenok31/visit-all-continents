@@ -10,6 +10,7 @@ const VisitAllContinents = (props) => {
     const [totalCostArr, setTotalCostArr] = useState([]);
     const [queueСities, setQueueСities] = useState([]);
     const [queueContinents, setQueueContinents] = useState([]);
+    const [pastResults, setPastResults] = useState([5]);
 
     const setIndexOf = (number) => {
         return queueСities.indexOf(number);
@@ -70,11 +71,11 @@ const VisitAllContinents = (props) => {
 let visitedContinents = unique(queueContinents).map(x => {
     return <div>{x}</div>
 });
-
+/*    if (unique(queueContinents).length==6){setPastResults(totalСost)}*/
     return <>
         <div className={style.item}>
             {unique(queueContinents).length!=6 ? <div>{totalСost}</div> : <div>Great! <b>{totalСost}</b></div>}
-            <img src={worldMap} alt='World Map' className={style.world_map}/>
+                        <img src={worldMap} alt='World Map' className={style.world_map}/>
             {CitiesInGame}
             <div className={style.continentsList}>
                 {visitedContinents}
