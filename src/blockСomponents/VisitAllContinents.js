@@ -10,7 +10,7 @@ const VisitAllContinents = (props) => {
     const [totalCostArr, setTotalCostArr] = useState([]);
     const [queueСities, setQueueСities] = useState([]);
     const [queueContinents, setQueueContinents] = useState([]);
-    const [pastResults, setPastResults] = useState([5]);
+    const [pastResults, setPastResults] = useState([]);
 
     const setIndexOf = (number) => {
         return queueСities.indexOf(number);
@@ -68,23 +68,28 @@ const VisitAllContinents = (props) => {
     const unique = (queueContinents) => {
         return Array.from(new Set(queueContinents));
     }
-let visitedContinents = unique(queueContinents).map(x => {
-    return <div>{x}</div>
-});
-/*    if (unique(queueContinents).length==6){setPastResults(totalСost)}*/
+    let visitedContinents = unique(queueContinents).map(x => {
+        return <div>{x}</div>
+    });
+    let spr = () => {
+        return pastResults.push(totalСost);
+        setPastResults(pastResults);
+    }
+    if (unique(queueContinents).length == 6) {spr()}
+
     return <>
         <div className={style.item}>
-            {unique(queueContinents).length!=6 ? <div>{totalСost}</div> : <div>Great! <b>{totalСost}</b></div>}
-                        <img src={worldMap} alt='World Map' className={style.world_map}/>
+            {unique(queueContinents).length != 6 ? <div>{totalСost}</div> : <div>Great! <b>{totalСost}</b></div>}
+            <img src={worldMap} alt='World Map' className={style.world_map}/>
             {CitiesInGame}
             <div className={style.continentsList}>
                 {visitedContinents}
             </div>
         </div>
-{/*        <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+        {/*        <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 10 L 90 80" fill="transparent" stroke="black"/>
         </svg>*/}
-
+        <div>{unique(pastResults).join(' ')}</div>
 
         <button onClick={() => {
             setQueueСities([]);
