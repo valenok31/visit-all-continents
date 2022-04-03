@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import style from "./VisitAllContinents.module.css"
 import worldMap from './../assets/images/worldMap.jpg'
+import CitiesInGame from "./citiesInGame/CitiesInGame";
 /*import checkingСity from './checkingCity'*/
 
 const VisitAllContinents = (props) => {
@@ -49,21 +50,12 @@ const VisitAllContinents = (props) => {
 
     const CityAddParam = props._cityAddParam;
 
-    let CitiesInGame = CityAddParam.map((a, numberCity) => {
-        return <div className={style.city}
-                    style={{
-                        top: props.getCityParameter(numberCity, 'lat') / 10 + '%',
-                        left: props.getCityParameter(numberCity, 'lon') / 10 + '%'
-                    }}>
-
-            <div id={a.name}
-                 title={props.getCityParameter(numberCity, 'title')}
-                 className={(setIndexOf(a.name) != -1 ? style.city__selected : style.city__no_selected)}
-                 onClick={() => choosingCityAdd(a.name, numberCity)}>
-
-            </div>
-            {setIndexOf(a.name) == -1 ? props.getCityParameter(numberCity, 'title') : `${setIndexOf(a.name) + 1}`}
-        </div>
+    let citiesInGame = CityAddParam.map((a, numberCity) => {
+        return <CitiesInGame a={a}
+                             numberCity={numberCity}
+                             {...props}
+                             setIndexOf={setIndexOf}
+                             choosingCityAdd={choosingCityAdd}/>
     });
 
     const unique = (queueContinents) => {
@@ -73,7 +65,7 @@ const VisitAllContinents = (props) => {
         return <span> {x} </span>
     });
     let spr = () => {
-        return pastResults.push('$'+totalСost);
+        return pastResults.push('$' + totalСost);
         setPastResults(pastResults);
     }
     if (unique(queueContinents).length == 6) {
@@ -85,7 +77,7 @@ const VisitAllContinents = (props) => {
 
             <div className={style.cities_in_game}>
                 <img src={worldMap} alt='World Map' className={style.world_map}/>
-                {CitiesInGame}
+                {citiesInGame}
             </div>
             <div className={style.game_results}>
                 {unique(queueContinents).length != 6 ?
