@@ -16,7 +16,6 @@ const VisitAllContinents = (props) => {
         return queueСities.indexOf(number);
     }
 
-
     const checkingСity = (previousСity, thisCity) => {
         if (!previousСity) return;
         totalCostArr.push(props.getCostCity(thisCity, props.getPreviousNumberСity(previousСity)));
@@ -86,9 +85,6 @@ const VisitAllContinents = (props) => {
                 {visitedContinents}
             </div>
         </div>
-        {/*        <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 10 L 90 80" fill="transparent" stroke="black"/>
-        </svg>*/}
         <div>{unique(pastResults).join(' ')}</div>
 
         <button onClick={() => {
