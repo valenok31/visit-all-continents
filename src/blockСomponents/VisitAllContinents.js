@@ -52,13 +52,15 @@ const VisitAllContinents = (props) => {
     let CitiesInGame = CityAddParam.map((a, numberCity) => {
         return <div className={style.city}
                     style={{
-                        top: props.getCityParameter(numberCity, 'lat') + 'px',
-                        left: props.getCityParameter(numberCity, 'lon') + 'px'
+                        top: props.getCityParameter(numberCity, 'lat') / 10 + '%',
+                        left: props.getCityParameter(numberCity, 'lon') / 10 + '%'
                     }}>
+
             <div id={a.name}
                  title={props.getCityParameter(numberCity, 'title')}
                  className={(setIndexOf(a.name) != -1 ? style.city__selected : style.city__no_selected)}
                  onClick={() => choosingCityAdd(a.name, numberCity)}>
+
             </div>
             {setIndexOf(a.name) == -1 ? props.getCityParameter(numberCity, 'title') : `${setIndexOf(a.name) + 1}`}
         </div>
@@ -68,34 +70,44 @@ const VisitAllContinents = (props) => {
         return Array.from(new Set(queueContinents));
     }
     let visitedContinents = unique(queueContinents).map(x => {
-        return <div>{x}</div>
+        return <span> {x} </span>
     });
     let spr = () => {
-        return pastResults.push(totalСost);
+        return pastResults.push('$'+totalСost);
         setPastResults(pastResults);
     }
-    if (unique(queueContinents).length == 6) {spr()}
+    if (unique(queueContinents).length == 6) {
+        spr()
+    }
 
     return <>
         <div className={style.item}>
-            {unique(queueContinents).length != 6 ? <div>{totalСost}</div> : <div>Great! <b>{totalСost}</b></div>}
-            <img src={worldMap} alt='World Map' className={style.world_map}/>
-            {CitiesInGame}
-            <div className={style.continentsList}>
-                {visitedContinents}
+
+            <div className={style.cities_in_game}>
+                <img src={worldMap} alt='World Map' className={style.world_map}/>
+                {CitiesInGame}
+            </div>
+            <div className={style.game_results}>
+                {unique(queueContinents).length != 6 ?
+                    <div className={style.total_cost}>${totalСost}</div> :
+                    <div className={style.total_cost}>Great! <b>{totalСost}</b></div>}
+                <div className={style.continentsList}>
+                    {visitedContinents}
+                </div>
+                <div>{unique(pastResults).join(' ')}</div>
+                <button onClick={() => {
+                    setQueueСities([]);
+                    setTotalCost(0);
+                    setTotalCostArr([]);
+                    setChoosingCity(false);
+                    setQueueContinents([]);
+                }
+                }>Reset
+                </button>
             </div>
         </div>
-        <div>{unique(pastResults).join(' ')}</div>
 
-        <button onClick={() => {
-            setQueueСities([]);
-            setTotalCost(0);
-            setTotalCostArr([]);
-            setChoosingCity(false);
-            setQueueContinents([]);
-        }
-        }>Reset
-        </button>
+
     </>
 }
 
