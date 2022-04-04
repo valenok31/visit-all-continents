@@ -7,7 +7,6 @@ const CitiesInGame = (props) => {
                     top: props.getCityParameter(props.numberCity, 'lat') / 10 + '%',
                     left: props.getCityParameter(props.numberCity, 'lon') / 10 + '%'
                 }}>
-
         <div id={props.a.name}
              title={props.getCityParameter(props.numberCity, 'title')}
              className={(props.setIndexOf(props.a.name) != -1 ? style.city__selected : style.city__no_selected)}
