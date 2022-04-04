@@ -48,6 +48,7 @@ const VisitAllContinents = (props) => {
         }
     }
 
+
     const CityAddParam = props._cityAddParam;
 
     let citiesInGame = CityAddParam.map((a, numberCity) => {
@@ -61,8 +62,8 @@ const VisitAllContinents = (props) => {
     const unique = (queueContinents) => {
         return Array.from(new Set(queueContinents));
     }
-    let visitedContinents = unique(queueContinents).map(x => {
-        return <span> {x} </span>
+    let visitedContinents = unique(queueContinents).map((x, n) => {
+        return <div> {n + 1} - {x} </div>
     });
     let spr = () => {
         return pastResults.push('$' + totalСost);
@@ -71,7 +72,7 @@ const VisitAllContinents = (props) => {
     if (unique(queueContinents).length == 6) {
         spr()
     }
-console.log(queueСities);
+    console.log(props.gameResults);
     return <>
         <div className={style.item}>
 
@@ -85,9 +86,15 @@ console.log(queueСities);
                     <div className={style.total_cost}>Great! <b>{totalСost}</b></div>}
                 <div className={style.continentsList}>
                     {visitedContinents}
-                   <div>{queueСities.join('-')}</div>
+                    <div>{queueСities.join('-')}</div>
                 </div>
                 <div>{unique(pastResults).join(' ')}</div>
+                                <button onClick={() => {
+
+                    props.setSaveResults(totalСost, queueСities.join('-'));
+                }
+                }>Save results
+                </button>
                 <button onClick={() => {
                     setQueueСities([]);
                     setTotalCost(0);

@@ -1,3 +1,5 @@
+const SET_SAVE_RESULTS = 'SET_SAVE_RESULTS';
+
 let initialState = {
     _cityAddParam: [
         {
@@ -190,9 +192,7 @@ let initialState = {
             continent: 'Asia',
         },
     ],
-    gameResults: {
-        1821: 'RIO-JFK-LAX-SYD-SIN-DXB-CPT-PAR',
-    },
+    gameResults: [],
     getCityAddParam(x) {
         return this._cityAddParam[x];
     },
@@ -225,9 +225,25 @@ let initialState = {
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_SAVE_RESULTS:
+            return {
+                ...state,
+                gameResults: [...state.gameResults,
+                    {
+                        result: action.results,
+                        way: action.way,
+                    }],
+            }
+
+
         default:
             return state;
     }
 }
+
+export const setSaveResults = (results, way) => ({
+    type: SET_SAVE_RESULTS, results, way
+});
+
 
 export default usersReducer;
