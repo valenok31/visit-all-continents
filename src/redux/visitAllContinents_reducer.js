@@ -19,24 +19,24 @@ let initialState = {
             lon: 280,
             continent: 'North America',
         },
-       /* {
-            name: 'OVB',
-            title: 'Novosibirsk',
-            cost: {
-                JFK: 306,
-                OVB: 0,
-                CPT: 404,
-                PAR: 126,
-                RIO: 545,
-                SYD: 543,
-                LAX: 440,
-                PEK: 558,
-                DXB: 140,
-            },
-            lat: 200,
-            lon: 670,
-            continent: 'Asia',
-        },*/
+        /* {
+             name: 'OVB',
+             title: 'Novosibirsk',
+             cost: {
+                 JFK: 306,
+                 OVB: 0,
+                 CPT: 404,
+                 PAR: 126,
+                 RIO: 545,
+                 SYD: 543,
+                 LAX: 440,
+                 PEK: 558,
+                 DXB: 140,
+             },
+             lat: 200,
+             lon: 670,
+             continent: 'Asia',
+         },*/
         {
             name: 'CPT',
             title: 'Cape Town',
@@ -190,7 +190,10 @@ let initialState = {
             continent: 'Asia',
         },
     ],
-    getCityAddParam(x){
+    gameResults: {
+        1821: 'RIO-JFK-LAX-SYD-SIN-DXB-CPT-PAR',
+    },
+    getCityAddParam(x) {
         return this._cityAddParam[x];
     },
     getCostCity(thisCity, previousNumberСity) {

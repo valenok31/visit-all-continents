@@ -71,7 +71,7 @@ const VisitAllContinents = (props) => {
     if (unique(queueContinents).length == 6) {
         spr()
     }
-
+console.log(queueСities);
     return <>
         <div className={style.item}>
 
@@ -85,6 +85,7 @@ const VisitAllContinents = (props) => {
                     <div className={style.total_cost}>Great! <b>{totalСost}</b></div>}
                 <div className={style.continentsList}>
                     {visitedContinents}
+                   <div>{queueСities.join('-')}</div>
                 </div>
                 <div>{unique(pastResults).join(' ')}</div>
                 <button onClick={() => {
