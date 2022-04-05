@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import style from "./VisitAllContinents.module.css"
 import worldMap from './../assets/images/worldMap.jpg'
+import sa from './../assets/images/sa.jpg'
 import CitiesInGame from "./citiesInGame/CitiesInGame";
+import PastResults from "./PastResults/PastResults";
 /*import checkingСity from './checkingCity'*/
 
 const VisitAllContinents = (props) => {
@@ -11,7 +13,6 @@ const VisitAllContinents = (props) => {
     const [totalCostArr, setTotalCostArr] = useState([]);
     const [queueСities, setQueueСities] = useState([]);
     const [queueContinents, setQueueContinents] = useState([]);
-    const [pastResults, setPastResults] = useState([]);
 
     const setIndexOf = (number) => {
         return queueСities.indexOf(number);
@@ -65,13 +66,6 @@ const VisitAllContinents = (props) => {
     let visitedContinents = unique(queueContinents).map((x, n) => {
         return <div> {n + 1} - {x} </div>
     });
-    let spr = () => {
-        return pastResults.push('$' + totalСost);
-        setPastResults(pastResults);
-    }
-    if (unique(queueContinents).length == 6) {
-        spr()
-    }
 
     let setSaveResults = () => {
 if(unique(queueContinents).length == 6) {
@@ -85,6 +79,7 @@ if(unique(queueContinents).length == 6) {
 
             <div className={style.cities_in_game}>
                 <img src={worldMap} alt='World Map' className={style.world_map}/>
+
                 {citiesInGame}
             </div>
             <div className={style.game_results}>
@@ -93,9 +88,9 @@ if(unique(queueContinents).length == 6) {
                     <div className={style.total_cost}>Great! <b>{totalСost}</b></div>}
                 <div className={style.continentsList}>
                     {visitedContinents}
-                    <div>{queueСities.join('-')}</div>
+                    {/*<div>{queueСities.join('-')}</div>*/}
                 </div>
-                <div>{unique(pastResults).join(' ')}</div>
+                <PastResults {...props}/>
                 <button onClick={() => {setSaveResults()}}>Save results
                 </button>
                 <button onClick={() => {

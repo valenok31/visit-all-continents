@@ -29,6 +29,13 @@ background-color: gainsboro;
     width: 100%;
     height: 100%;
 }
+.visited_continents__sa{
+    font-size: 60px;
+    color: chartreuse;
+    position: absolute;
+    top:43%;
+    left: 28%;
+}
 
 .city {
     position: absolute;
@@ -87,4 +94,8 @@ background-color: gainsboro;
 .continentsList {
     display: inline-block;
 
+}
+
+.game_results__way{
+    font-size: 10px;
 }
