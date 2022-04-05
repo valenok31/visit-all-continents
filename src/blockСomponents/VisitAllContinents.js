@@ -72,6 +72,13 @@ const VisitAllContinents = (props) => {
     if (unique(queueContinents).length == 6) {
         spr()
     }
+
+    let setSaveResults = () => {
+if(unique(queueContinents).length == 6) {
+    props.setSaveResults(totalСost, queueСities.join('-'));
+}
+    }
+
     console.log(props.gameResults);
     return <>
         <div className={style.item}>
@@ -89,11 +96,7 @@ const VisitAllContinents = (props) => {
                     <div>{queueСities.join('-')}</div>
                 </div>
                 <div>{unique(pastResults).join(' ')}</div>
-                                <button onClick={() => {
-
-                    props.setSaveResults(totalСost, queueСities.join('-'));
-                }
-                }>Save results
+                <button onClick={() => {setSaveResults()}}>Save results
                 </button>
                 <button onClick={() => {
                     setQueueСities([]);

@@ -235,7 +235,6 @@ const usersReducer = (state = initialState, action) => {
                     }],
             }
 
-
         default:
             return state;
     }
@@ -244,6 +243,5 @@ const usersReducer = (state = initialState, action) => {
 export const setSaveResults = (results, way) => ({
     type: SET_SAVE_RESULTS, results, way
 });
-
 
 export default usersReducer;
