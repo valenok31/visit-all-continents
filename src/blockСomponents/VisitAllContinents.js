@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import style from "./VisitAllContinents.module.css"
 import worldMap from './../assets/images/worldMap.jpg'
-import sa from './../assets/images/sa.jpg'
 import CitiesInGame from "./citiesInGame/CitiesInGame";
 import PastResults from "./PastResults/PastResults";
 /*import checkingСity from './checkingCity'*/
@@ -72,6 +71,15 @@ const VisitAllContinents = (props) => {
             props.setSaveResults(totalСost, queueСities.join('-'));
         }
     }
+    const buttonSaveResults = <button onClick={() => {
+        if(unique(queueContinents).length == 6) setSaveResults();
+        setQueueСities([]);
+        setTotalCost(0);
+        setTotalCostArr([]);
+        setChoosingCity(false);
+        setQueueContinents([]);
+    }}>{unique(queueContinents).length == 6 ? 'Save results and reset' : 'Reset'}
+    </button>
 
     console.log(props.gameResults);
     return <>
@@ -91,24 +99,7 @@ const VisitAllContinents = (props) => {
                 </div>
                 <div>
                     <PastResults {...props}/>
-                    <button onClick={() => {
-                        setSaveResults();
-                        setQueueСities([]);
-                        setTotalCost(0);
-                        setTotalCostArr([]);
-                        setChoosingCity(false);
-                        setQueueContinents([]);
-                    }}>Save results and reset
-                    </button>
-                    <button onClick={() => {
-                        setQueueСities([]);
-                        setTotalCost(0);
-                        setTotalCostArr([]);
-                        setChoosingCity(false);
-                        setQueueContinents([]);
-                    }
-                    }>Reset
-                    </button>
+                    {buttonSaveResults}
                 </div>
             </div>
         </div>
