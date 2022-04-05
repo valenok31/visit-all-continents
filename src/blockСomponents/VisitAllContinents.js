@@ -68,9 +68,9 @@ const VisitAllContinents = (props) => {
     });
 
     let setSaveResults = () => {
-if(unique(queueContinents).length == 6) {
-    props.setSaveResults(totalСost, queueСities.join('-'));
-}
+        if (unique(queueContinents).length == 6) {
+            props.setSaveResults(totalСost, queueСities.join('-'));
+        }
     }
 
     console.log(props.gameResults);
@@ -88,20 +88,28 @@ if(unique(queueContinents).length == 6) {
                     <div className={style.total_cost}>Great! <b>{totalСost}</b></div>}
                 <div className={style.continentsList}>
                     {visitedContinents}
-                    {/*<div>{queueСities.join('-')}</div>*/}
                 </div>
-                <PastResults {...props}/>
-                <button onClick={() => {setSaveResults()}}>Save results
-                </button>
-                <button onClick={() => {
-                    setQueueСities([]);
-                    setTotalCost(0);
-                    setTotalCostArr([]);
-                    setChoosingCity(false);
-                    setQueueContinents([]);
-                }
-                }>Reset
-                </button>
+                <div>
+                    <PastResults {...props}/>
+                    <button onClick={() => {
+                        setSaveResults();
+                        setQueueСities([]);
+                        setTotalCost(0);
+                        setTotalCostArr([]);
+                        setChoosingCity(false);
+                        setQueueContinents([]);
+                    }}>Save results and reset
+                    </button>
+                    <button onClick={() => {
+                        setQueueСities([]);
+                        setTotalCost(0);
+                        setTotalCostArr([]);
+                        setChoosingCity(false);
+                        setQueueContinents([]);
+                    }
+                    }>Reset
+                    </button>
+                </div>
             </div>
         </div>
 

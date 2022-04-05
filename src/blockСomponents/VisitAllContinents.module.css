@@ -17,6 +17,9 @@
 background-color: gainsboro;
     width: 15vw;
     height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 }
 
