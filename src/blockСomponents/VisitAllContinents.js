@@ -3,6 +3,7 @@ import style from "./VisitAllContinents.module.css"
 import worldMap from './../assets/images/worldMap.jpg'
 import CitiesInGame from "./citiesInGame/CitiesInGame";
 import PastResults from "./PastResults/PastResults";
+import ButtonSaveResults from "./ButtonSaveResults/ButtonSaveResults";
 /*import checkingСity from './checkingCity'*/
 
 const VisitAllContinents = (props) => {
@@ -66,28 +67,17 @@ const VisitAllContinents = (props) => {
         return <div> {n + 1} - {x} </div>
     });
 
-    let setSaveResults = () => {
+    let setSaveResultsCont = () => {
         if (unique(queueContinents).length == 6) {
             props.setSaveResults(totalСost, queueСities.join('-'));
         }
     }
-    const buttonSaveResults = <button onClick={() => {
-        if(unique(queueContinents).length == 6) setSaveResults();
-        setQueueСities([]);
-        setTotalCost(0);
-        setTotalCostArr([]);
-        setChoosingCity(false);
-        setQueueContinents([]);
-    }}>{unique(queueContinents).length == 6 ? 'Save results and reset' : 'Reset'}
-    </button>
 
     console.log(props.gameResults);
     return <>
         <div className={style.item}>
-
             <div className={style.cities_in_game}>
                 <img src={worldMap} alt='World Map' className={style.world_map}/>
-
                 {citiesInGame}
             </div>
             <div className={style.game_results}>
@@ -99,12 +89,20 @@ const VisitAllContinents = (props) => {
                 </div>
                 <div>
                     <PastResults {...props}/>
-                    {buttonSaveResults}
+                    <ButtonSaveResults
+                        {...props}
+                        unique={unique}
+                        queueContinents={queueContinents}
+                        setQueueСities={setQueueСities}
+                        setTotalCost={setTotalCost}
+                        setTotalCostArr={setTotalCostArr}
+                        setChoosingCity={setChoosingCity}
+                        setQueueContinents={setQueueContinents}
+                        setSaveResultsCont={setSaveResultsCont}
+                    />
                 </div>
             </div>
         </div>
-
-
     </>
 }
 
