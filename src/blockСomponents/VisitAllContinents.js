@@ -49,8 +49,7 @@ const VisitAllContinents = (props) => {
         }
     }
 
-
-    const CityAddParam = props._cityAddParam;
+    const CityAddParam = props.paramCity;
 
     let citiesInGame = CityAddParam.map((a, numberCity) => {
         return <CitiesInGame a={a}
@@ -73,6 +72,14 @@ const VisitAllContinents = (props) => {
         }
     }
 
+    const resetResults = () => {
+        setQueueСities([]);
+        setTotalCost(0);
+        setTotalCostArr([]);
+        setChoosingCity(false);
+        setQueueContinents([]);
+    }
+
     console.log(props.gameResults);
     return <>
         <div className={style.item}>
@@ -89,15 +96,11 @@ const VisitAllContinents = (props) => {
                 </div>
                 <div>
                     <PastResults {...props}/>
+                    {choosingCity ? 'true' : 'false'}
                     <ButtonSaveResults
-                        {...props}
                         unique={unique}
                         queueContinents={queueContinents}
-                        setQueueСities={setQueueСities}
-                        setTotalCost={setTotalCost}
-                        setTotalCostArr={setTotalCostArr}
-                        setChoosingCity={setChoosingCity}
-                        setQueueContinents={setQueueContinents}
+                        resetResults={resetResults}
                         setSaveResultsCont={setSaveResultsCont}
                     />
                 </div>

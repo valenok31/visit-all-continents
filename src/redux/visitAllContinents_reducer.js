@@ -193,8 +193,8 @@ let initialState = {
         },
     ],
     gameResults: [],
-    getCityAddParam(x) {
-        return this._cityAddParam[x];
+    get paramCity(){
+        return this._cityAddParam;
     },
     getCostCity(thisCity, previousNumberСity) {
         return this._cityAddParam[previousNumberСity].cost[thisCity];

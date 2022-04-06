@@ -16,6 +16,7 @@ class VisitAllContinentsCont extends React.Component {
                 getCityParameter={this.props.getCityParameter}
                 getPreviousNumberСity={this.props.getPreviousNumberСity}
                 _cityAddParam={this.props._cityAddParam}
+                paramCity={this.props.paramCity}
                 gameResults={this.props.gameResults}
                 setSaveResults={this.props.setSaveResults}
             />
@@ -24,8 +25,8 @@ class VisitAllContinentsCont extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-    /*    getCityAddParam: state.visitAllContinents_reducer.getCityAddParam,*/
     _cityAddParam: state.visitAllContinents_reducer._cityAddParam,
+    paramCity: state.visitAllContinents_reducer.paramCity,
     gameResults: state.visitAllContinents_reducer.gameResults,
     getCostCity: state.visitAllContinents_reducer.getCostCity,
     getCityParameter: state.visitAllContinents_reducer.getCityParameter,
