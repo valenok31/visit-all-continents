@@ -19,6 +19,11 @@ const Home = () => {
                 <div>Game rules</div>
             </NavLink>
         </div>
+        <div>
+            <NavLink to='/records' className={style.nLink}>
+                <div>Records</div>
+            </NavLink>
+        </div>
     </>
 
 }

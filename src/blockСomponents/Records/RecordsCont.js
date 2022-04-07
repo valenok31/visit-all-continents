@@ -1,9 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
-import {setSaveResults} from "../redux/visitAllContinents_reducer";
-import GameRules from "./GameRules";
+import Records from "./Records";
 
-class GameRulesCont extends React.Component {
+class RecordsCont extends React.Component {
     componentDidMount() {
 
     }
@@ -11,7 +10,7 @@ class GameRulesCont extends React.Component {
     render() {
 
         return <>
-            <GameRules
+            <Records
                 getCostCity={this.props.getCostCity}
                 getCityParameter={this.props.getCityParameter}
                 getPreviousNumberСity={this.props.getPreviousNumberСity}
@@ -34,4 +33,4 @@ let mapStateToProps = (state) => ({
 
 })
 
-export default connect(mapStateToProps, {setSaveResults})(GameRulesCont)
+export default connect(mapStateToProps, {})(RecordsCont)

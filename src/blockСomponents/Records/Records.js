@@ -1,20 +1,17 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import style from "../home/home.module.css";
+import PastResults from "../PastResults/PastResults";
 
-const GameRules = (props) => {
+const Records = (props) => {
     return <>
         <div>
             <NavLink to='/' className={style.nLink}>
                 <div>Home</div>
             </NavLink>
         </div>
-        <div>{}</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
+        <div><PastResults {...props}/></div>
     </>
 }
 
-export default GameRules;
+export default Records;
