@@ -1,0 +1,10 @@
+.game_rules {
+    display: block;
+    width: 80vw;
+    margin: 50px;
+    font-size: 20px;
+}
+
+.nLink{
+    margin: 20px;
+}
