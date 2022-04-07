@@ -4,6 +4,7 @@ import worldMap from './../assets/images/worldMap.jpg'
 import CitiesInGame from "./citiesInGame/CitiesInGame";
 import PastResults from "./PastResults/PastResults";
 import ButtonSaveResults from "./ButtonSaveResults/ButtonSaveResults";
+import {NavLink} from "react-router-dom";
 /*import checkingСity from './checkingCity'*/
 
 const VisitAllContinents = (props) => {
@@ -82,6 +83,11 @@ const VisitAllContinents = (props) => {
 
     console.log(props.gameResults);
     return <>
+        <div>
+            <NavLink to='/' className={style.nLink}>
+                <div>Home</div>
+            </NavLink>
+        </div>
         <div className={style.item}>
             <div className={style.cities_in_game}>
                 <img src={worldMap} alt='World Map' className={style.world_map}/>
