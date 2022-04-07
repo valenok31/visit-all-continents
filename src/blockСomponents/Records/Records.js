@@ -5,7 +5,6 @@ import PastResults from "../PastResults/PastResults";
 
 const Records = (props) => {
 
-
     return <>
         <div>
             <NavLink to='/' className={style.nLink}>

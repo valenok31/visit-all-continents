@@ -102,7 +102,6 @@ const VisitAllContinents = (props) => {
                 </div>
                 <div>
                     <PastResults {...props}/>
-                    {choosingCity ? 'true' : 'false'}
                     <ButtonSaveResults
                         unique={unique}
                         queueContinents={queueContinents}
