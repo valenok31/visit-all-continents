@@ -11,7 +11,7 @@ const Records = (props) => {
                 <div>Home</div>
             </NavLink>
         </div>
-        <div><PastResults {...props}/></div>
+        <div><PastResults {...props} quantity='1000'/></div>
     </>
 }
 
