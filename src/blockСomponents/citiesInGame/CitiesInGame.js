@@ -12,9 +12,11 @@ const CitiesInGame = (props) => {
              className={(props.setIndexOf(props.a.name) != -1 ? style.city__selected : style.city__no_selected)}
              onClick={() => props.choosingCityAdd(props.a.name, props.numberCity)}>
         </div>
-        {props.setIndexOf(props.a.name) == -1 ?
-            props.getCityParameter(props.numberCity, 'title') :
-            `${props.setIndexOf(props.a.name) + 1}`}
+        <div className={style.city__name}>
+            {props.setIndexOf(props.a.name) == -1 ?
+                /*props.getCityParameter(props.numberCity, 'name')*/ '' :
+                `${props.setIndexOf(props.a.name) + 1}`}
+        </div>
     </div>
 }
 
