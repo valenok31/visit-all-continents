@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import style from './home.module.css';
 
 const Home = () => {
-    return <>
+    return <div className={style.center_me}>
         <div>
             <NavLink to='/game' className={style.nLink}>
                 <div>Start</div>
@@ -24,7 +24,7 @@ const Home = () => {
                 <div>Records</div>
             </NavLink>
         </div>
-    </>
+    </div>
 
 }
 
