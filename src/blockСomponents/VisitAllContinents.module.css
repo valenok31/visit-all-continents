@@ -20,18 +20,13 @@ background-color: gainsboro;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
 ::-webkit-scrollbar {
     width: 0;
 }
 
-.world_map {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-}
+
 .visited_continents__sa{
     font-size: 60px;
     color: chartreuse;
@@ -43,7 +38,7 @@ background-color: gainsboro;
 .city {
     position: absolute;
     font-size: 0.9em;
-
+    z-index: 50;
 }
 
 
@@ -111,4 +106,22 @@ background-color: gainsboro;
 
 .game_results__way{
     font-size: 10px;
+}
+
+.world_map {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+
+.north_america{
+    position: absolute;
+    z-index: 2;
+}
+
+.gri{
+   fill: #d5ffab;
 }
