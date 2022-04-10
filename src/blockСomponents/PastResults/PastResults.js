@@ -15,13 +15,13 @@ const PastResults = (props) => {
     sortable.length = props.quantity;
     let pastResults = sortable.map(
         (m) => {
-            return <div>{m[0]} - <span className={style.game_results__way}>{m[1]}</span></div>
+            return <li>{m[0]} - <span className={style.game_results__way}>{m[1]}</span></li>
         }
     );
     return <>
-        <div>
+        <ol>
             {pastResults}
-        </div>
+        </ol>
     </>
 }
 

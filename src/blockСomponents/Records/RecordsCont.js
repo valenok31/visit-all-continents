@@ -1,12 +1,22 @@
 import React from "react";
 import {connect} from "react-redux";
 import Records from "./Records";
+import {NavLink} from "react-router-dom";
+import style from "./records.module.css";
 
 class RecordsCont extends React.Component {
     render() {
-        return <>
-            <Records gameResults={this.props.gameResults}/>
-        </>
+        return <div>
+            <div>
+                <NavLink to='/' className={style.nLink}>
+                    <div>Home</div>
+                </NavLink>
+            </div>
+            <div className={style.heading}>Hall of Fame</div>
+            <div className={style.list_results}>
+                <div className={style.list_results__records}><Records gameResults={this.props.gameResults}/></div>
+            </div>
+        </div>
     }
 }
 

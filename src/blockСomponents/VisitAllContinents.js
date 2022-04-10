@@ -101,7 +101,7 @@ const VisitAllContinents = (props) => {
                     {visitedContinents}
                 </div>
                 <div>
-                    <PastResults {...props} quantity='3'/>
+                    {/*<PastResults {...props} quantity='3'/>*/}
                     <ButtonSaveResults
                         unique={unique}
                         queueContinents={queueContinents}

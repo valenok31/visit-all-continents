@@ -6,11 +6,7 @@ import PastResults from "../PastResults/PastResults";
 const Records = (props) => {
 
     return <>
-        <div>
-            <NavLink to='/' className={style.nLink}>
-                <div>Home</div>
-            </NavLink>
-        </div>
+
         <div><PastResults {...props} quantity='1000'/></div>
     </>
 }
