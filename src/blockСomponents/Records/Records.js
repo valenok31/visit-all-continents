@@ -7,7 +7,7 @@ const Records = (props) => {
 
     return <>
 
-        <div><PastResults {...props} quantity='1000'/></div>
+        <div><PastResults {...props} quantity={props.quantity}/></div>
     </>
 }
 

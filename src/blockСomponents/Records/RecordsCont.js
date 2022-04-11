@@ -14,7 +14,7 @@ class RecordsCont extends React.Component {
             </div>
             <div className={style.heading}>Hall of Fame</div>
             <div className={style.list_results}>
-                <div className={style.list_results__records}><Records gameResults={this.props.gameResults}/></div>
+                <div className={style.list_results__records}><Records gameResults={this.props.gameResults} quantity='1000'/></div>
             </div>
         </div>
     }

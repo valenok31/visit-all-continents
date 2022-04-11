@@ -6,6 +6,7 @@ import CitiesInGame from "./citiesInGame/CitiesInGame";
 import PastResults from "./PastResults/PastResults";
 import ButtonSaveResults from "./ButtonSaveResults/ButtonSaveResults";
 import {NavLink} from "react-router-dom";
+import Records from "./Records/Records";
 /*import checkingСity from './checkingCity'*/
 
 const VisitAllContinents = (props) => {
@@ -64,21 +65,20 @@ const VisitAllContinents = (props) => {
     const unique = (queueContinents) => {
         return Array.from(new Set(queueContinents));
     }
-    let tig_na=false;
-    let tig_sa=false;
-    let tig_eur=false;
-    let tig_asia=false;
-    let tig_afr=false;
-    let tig_austr=false;
+    let toggle_north_america=false;
+    let toggle_south_america=false;
+    let toggle_europe=false;
+    let toggle_asia=false;
+    let toggle_africa=false;
+    let toggle_australia=false;
     let visitedContinents = unique(queueContinents).map((x, n) => {
-        if (x=='Северная Америка'){tig_na=true}
-        if (x=='Южная Америка'){tig_sa=true}
-        if (x=='Европа'){tig_eur=true}
-        if (x=='Азия'){tig_asia=true}
-        if (x=='Африка'){tig_afr=true}
-        if (x=='Австралия'){tig_austr=true}
-
-        return <div> {n + 1} - {x} </div>
+        if (x=='Северная Америка'){toggle_north_america=true}
+        if (x=='Южная Америка'){toggle_south_america=true}
+        if (x=='Европа'){toggle_europe=true}
+        if (x=='Азия'){toggle_asia=true}
+        if (x=='Африка'){toggle_africa=true}
+        if (x=='Австралия'){toggle_australia=true}
+        return
     });
 
     let setSaveResultsCont = () => {
@@ -115,34 +115,37 @@ const VisitAllContinents = (props) => {
         </div>
         <div className={style.item}>
             <div className={style.cities_in_game}>
+                <NavLink to='/' className={style.nLink}>
+                    <div>Home</div>
+                </NavLink>
                 <svg viewBox="0 0 2000 1000" xmlns="http://www.w3.org/2000/svg" className={style.north_america}>
-                    {tig_na ? n_america : ''}
-                    {tig_sa ? s_america : ''}
-                    {tig_eur ? europa : ''}
-                    {tig_asia ? asia : ''}
-                    {tig_afr ? africa : ''}
-                    {tig_austr ? australia : ''}
+                    {toggle_north_america ? n_america : ''}
+                    {toggle_south_america ? s_america : ''}
+                    {toggle_europe ? europa : ''}
+                    {toggle_asia ? asia : ''}
+                    {toggle_africa ? africa : ''}
+                    {toggle_australia ? australia : ''}
                 </svg>
                 <img src={worldMap} alt='World Map' className={style.world_map}/>
                 {citiesInGame}
-            </div>
-            <div className={style.game_results}>
-                {unique(queueContinents).length != 6 ?
-                    <div className={style.total_cost}>${totalСost}</div> :
-                    <div className={style.total_cost}>Great! <b>{totalСost}</b></div>}
-{/*                <div className={style.continentsList}>
-                    {visitedContinents}
-                </div>*/}
-                <div>
-                    {/*<PastResults {...props} quantity='3'/>*/}
-                    <ButtonSaveResults
-                        unique={unique}
-                        queueContinents={queueContinents}
-                        resetResults={resetResults}
-                        setSaveResultsCont={setSaveResultsCont}
-                    />
+                <div className={style.game_results}>
+
+                    <div>
+                        {unique(queueContinents).length != 6 ?
+                            <div className={style.total_cost}>${totalСost}</div> :
+                            <div className={style.total_cost}>Great! <b>{totalСost}</b></div>}
+                        <ButtonSaveResults
+                            unique={unique}
+                            queueContinents={queueContinents}
+                            resetResults={resetResults}
+                            setSaveResultsCont={setSaveResultsCont}
+                        />
+                        <Records gameResults={props.gameResults} quantity='2'/>
+
+                    </div>
                 </div>
             </div>
+
         </div>
     </>
 }
