@@ -8,10 +8,16 @@ class VisitAllContinentsCont extends React.Component {
 
     }
 
+
+
     render() {
 
+        const unique = (queueContinents) => {
+            return Array.from(new Set(queueContinents));
+        }
         return <>
             <VisitAllContinents
+                unique={unique}
                 getCostCity={this.props.getCostCity}
                 getCityParameter={this.props.getCityParameter}
                 getPreviousNumberСity={this.props.getPreviousNumberСity}
