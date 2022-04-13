@@ -2,12 +2,13 @@ import React, {useState} from "react";
 import style from "./VisitAllContinents.module.css"
 /*import worldMap from './../assets/images/worldMap.jpg'*/
 import worldMap from './../assets/images/worldMap.png'
-import CitiesInGame from "./citiesInGame/CitiesInGame";
+import CitiesInGame from "./CitiesInGame/CitiesInGame";
 import PastResults from "./PastResults/PastResults";
 import ButtonSaveResults from "./ButtonSaveResults/ButtonSaveResults";
 import {NavLink} from "react-router-dom";
 import Records from "./Records/Records";
 import CheckVisitedContinents from "./CheckVisitedContinents/CheckVisitedContinents";
+import HomeNavLink from "./HomeNavLink/HomeNavLink";
 /*import checkingСity from './checkingCity'*/
 
 const VisitAllContinents = (props) => {
@@ -22,14 +23,13 @@ const VisitAllContinents = (props) => {
         return queueCities.indexOf(number);
     }
 
-    const checkingСity = (previousСity, thisCity) => {
-        if (!previousСity) return;
-        totalCostArr.push(props.getCostCity(thisCity, props.getPreviousNumberСity(previousСity)));
+    const checkingCity = (previousCity, thisCity) => {
+        if (!previousCity) return;
+        totalCostArr.push(props.getCostCity(thisCity, props.getPreviousNumberСity(previousCity)));
         setTotalCostArr(totalCostArr);
         const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
         setTotalCost(sumWithInitial);
     }
-
     const choosingCityAdd = (thisCity, numberCity) => {
         if (setIndexOf(thisCity) == -1) {
             queueContinents.push(props.getCityParameter(numberCity, 'continent'));
@@ -38,7 +38,7 @@ const VisitAllContinents = (props) => {
             setQueueCities(queueCities);
             setChoosingCity(!choosingCity);
             let prevСity = queueCities[setIndexOf(thisCity) - 1];
-            return checkingСity(prevСity, thisCity);
+            return checkingCity(prevСity, thisCity);
         }
         if (thisCity == queueCities[queueCities.length - 1]) {
             queueContinents.splice(setIndexOf(thisCity), 1);
@@ -76,11 +76,8 @@ const VisitAllContinents = (props) => {
         setChoosingCity(false);
         setQueueContinents([]);
     }
-
     return <div className={style.cities_in_game}>
-        <NavLink to='/' className={style.nLink}>
-            <div>Home</div>
-        </NavLink>
+        <HomeNavLink/>
         <CheckVisitedContinents unique={props.unique} queueContinents={queueContinents}/>
         <img src={worldMap} alt='World Map' className={style.world_map}/>
         {citiesInGame}

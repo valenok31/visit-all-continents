@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import VisitAllContinents from "./VisitAllContinents";
-import {setSaveResults} from "../redux/visitAllContinents_reducer";
+import {setContinentsList, setSaveResults} from "../redux/visitAllContinents_reducer";
 
 class VisitAllContinentsCont extends React.Component {
     componentDidMount() {
@@ -25,6 +25,8 @@ class VisitAllContinentsCont extends React.Component {
                 paramCity={this.props.paramCity}
                 gameResults={this.props.gameResults}
                 setSaveResults={this.props.setSaveResults}
+                setContinentsList={this.props.setContinentsList}
+
             />
         </>
     }
@@ -37,6 +39,7 @@ let mapStateToProps = (state) => ({
     getCostCity: state.visitAllContinents_reducer.getCostCity,
     getCityParameter: state.visitAllContinents_reducer.getCityParameter,
     getPreviousNumberСity: state.visitAllContinents_reducer.getPreviousNumberСity,
+
 
 })
 

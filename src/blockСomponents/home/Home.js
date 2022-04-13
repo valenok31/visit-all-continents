@@ -10,11 +10,6 @@ const Home = () => {
             </NavLink>
         </div>
         <div>
-            <NavLink to='/about' className={style.nLink}>
-                <div>About</div>
-            </NavLink>
-        </div>
-        <div>
             <NavLink to='/gamerules' className={style.nLink}>
                 <div>Game rules</div>
             </NavLink>
