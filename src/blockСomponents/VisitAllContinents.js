@@ -1,15 +1,11 @@
 import React, {useState} from "react";
 import style from "./VisitAllContinents.module.css"
-/*import worldMap from './../assets/images/worldMap.jpg'*/
 import worldMap from './../assets/images/worldMap.png'
 import CitiesInGame from "./CitiesInGame/CitiesInGame";
-import PastResults from "./PastResults/PastResults";
 import ButtonSaveResults from "./ButtonSaveResults/ButtonSaveResults";
-import {NavLink} from "react-router-dom";
 import Records from "./Records/Records";
 import CheckVisitedContinents from "./CheckVisitedContinents/CheckVisitedContinents";
 import HomeNavLink from "./HomeNavLink/HomeNavLink";
-/*import checkingСity from './checkingCity'*/
 
 const VisitAllContinents = (props) => {
 
@@ -76,6 +72,7 @@ const VisitAllContinents = (props) => {
         setChoosingCity(false);
         setQueueContinents([]);
     }
+
     return <div className={style.cities_in_game}>
         <HomeNavLink/>
         <CheckVisitedContinents unique={props.unique} queueContinents={queueContinents}/>

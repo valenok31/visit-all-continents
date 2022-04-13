@@ -541,11 +541,11 @@ let initialState = {
         return this._cityAddParam;
     },
     getCostCity(thisCity, previousNumberСity) {
-        return this._cityAddParam[previousNumberСity].cost[thisCity];
+        return this.paramCity[previousNumberСity].cost[thisCity];
     },
     getPreviousNumberСity(previousСity) {
-        for (let i = 0; i < this._cityAddParam.length; i++) {
-            if (this._cityAddParam[i].name == previousСity) {
+        for (let i = 0; i < this.paramCity.length; i++) {
+            if (this.paramCity[i].name == previousСity) {
                 return i;
             }
         }
@@ -553,15 +553,15 @@ let initialState = {
     getCityParameter(numberCity, param) {
         switch (param) {
             case 'lat':
-                return this._cityAddParam[numberCity].lat;
+                return this.paramCity[numberCity].lat;
             case 'lon':
-                return this._cityAddParam[numberCity].lon;
+                return this.paramCity[numberCity].lon;
             case 'title':
-                return this._cityAddParam[numberCity].title;
+                return this.paramCity[numberCity].title;
             case 'continent':
-                return this._cityAddParam[numberCity].continent;
+                return this.paramCity[numberCity].continent;
             case 'name':
-                return this._cityAddParam[numberCity].name;
+                return this.paramCity[numberCity].name;
             default:
                 return
         }
@@ -587,6 +587,7 @@ const usersReducer = (state = initialState, action) => {
 export const setSaveResults = (results, way) => ({
     type: SET_SAVE_RESULTS, results, way
 });
+
 
 
 export default usersReducer;

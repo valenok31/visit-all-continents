@@ -1,13 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
 import VisitAllContinents from "./VisitAllContinents";
-import {setContinentsList, setSaveResults} from "../redux/visitAllContinents_reducer";
+import {setSaveResults} from "../redux/visitAllContinents_reducer";
 
 class VisitAllContinentsCont extends React.Component {
-    componentDidMount() {
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps != this.props || nextState != this.state;
+        //return true;
     }
-
 
 
     render() {
@@ -21,7 +22,6 @@ class VisitAllContinentsCont extends React.Component {
                 getCostCity={this.props.getCostCity}
                 getCityParameter={this.props.getCityParameter}
                 getPreviousNumberСity={this.props.getPreviousNumberСity}
-                _cityAddParam={this.props._cityAddParam}
                 paramCity={this.props.paramCity}
                 gameResults={this.props.gameResults}
                 setSaveResults={this.props.setSaveResults}
@@ -32,8 +32,8 @@ class VisitAllContinentsCont extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => ({
-    _cityAddParam: state.visitAllContinents_reducer._cityAddParam,
+let mapStateToProps = (state) => {
+    return ({
     paramCity: state.visitAllContinents_reducer.paramCity,
     gameResults: state.visitAllContinents_reducer.gameResults,
     getCostCity: state.visitAllContinents_reducer.getCostCity,
@@ -41,6 +41,6 @@ let mapStateToProps = (state) => ({
     getPreviousNumberСity: state.visitAllContinents_reducer.getPreviousNumberСity,
 
 
-})
+})};
 
 export default connect(mapStateToProps, {setSaveResults})(VisitAllContinentsCont)

@@ -10,8 +10,6 @@ const PastResults = (props) => {
         return a[0] - b[0];
     });
 
-    console.log(sortable);
-
     sortable.length = props.quantity;
     let pastResults = sortable.map(
         (m) => {
