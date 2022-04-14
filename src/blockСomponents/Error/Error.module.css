@@ -1,0 +1,27 @@
+.center_me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    font-size: 35px;
+    text-decoration: none;
+    background-image: url("/src/assets/images/istockphoto.jpg");
+    background-repeat: repeat;
+    background-size: 30%;
+}
+
+.nLink{
+    text-decoration: none;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: #616161;
+
+}
+.nLink:hover{
+    color: #0017ff;
+}
+
+.center_me div{
+    width: 200px;
+    text-align: center;
+}
