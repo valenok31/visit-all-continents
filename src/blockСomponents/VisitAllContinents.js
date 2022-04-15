@@ -49,9 +49,7 @@ const VisitAllContinents = (props) => {
         }
     }
 
-    const CityAddParam = props.paramCity;
-
-    let citiesInGame = CityAddParam.map((a, numberCity) => {
+    let citiesInGame = props.paramCity.map((a, numberCity) => {
         return <CitiesInGame a={a}
                              numberCity={numberCity}
                              {...props}

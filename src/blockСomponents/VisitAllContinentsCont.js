@@ -7,12 +7,9 @@ class VisitAllContinentsCont extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps != this.props || nextState != this.state;
-        //return true;
     }
 
-
     render() {
-
         const unique = (queueContinents) => {
             return Array.from(new Set(queueContinents));
         }
@@ -26,7 +23,6 @@ class VisitAllContinentsCont extends React.Component {
                 gameResults={this.props.gameResults}
                 setSaveResults={this.props.setSaveResults}
                 setContinentsList={this.props.setContinentsList}
-
             />
         </>
     }
@@ -39,8 +35,6 @@ let mapStateToProps = (state) => {
     getCostCity: state.visitAllContinents_reducer.getCostCity,
     getCityParameter: state.visitAllContinents_reducer.getCityParameter,
     getPreviousNumberСity: state.visitAllContinents_reducer.getPreviousNumberСity,
-
-
 })};
 
 export default connect(mapStateToProps, {setSaveResults})(VisitAllContinentsCont)
