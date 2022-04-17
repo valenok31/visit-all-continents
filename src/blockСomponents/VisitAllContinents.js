@@ -33,8 +33,8 @@ const VisitAllContinents = (props) => {
             queueCities.push(thisCity);
             setQueueCities(queueCities);
             setChoosingCity(!choosingCity);
-            let prevСity = queueCities[setIndexOf(thisCity) - 1];
-            return checkingCity(prevСity, thisCity);
+            let prevCity = queueCities[setIndexOf(thisCity) - 1];
+            return checkingCity(prevCity, thisCity);
         }
         if (thisCity == queueCities[queueCities.length - 1]) {
             queueContinents.splice(setIndexOf(thisCity), 1);
