@@ -59,8 +59,6 @@ const VisitAllContinents = (props) => {
             props.setSaveResults(totalCost, queueCities.join('-'));
         }
     }
-    console.log('totalCostArr = ' + totalCostArr);
-    console.log('totalCost = ' + totalCost);
 
     const resetResults = () => {
         setQueueCities([]);
@@ -83,13 +81,11 @@ const VisitAllContinents = (props) => {
                     unique={props.unique}
                     queueContinents={queueContinents}
                     resetResults={resetResults}
-                    setSaveResultsCont={setSaveResultsCont}
-                />
+                    setSaveResultsCont={setSaveResultsCont}/>
                 <Records gameResults={props.gameResults} quantity='5'/>
             </div>
         </div>
     </div>
-
 }
 
 export default VisitAllContinents;
