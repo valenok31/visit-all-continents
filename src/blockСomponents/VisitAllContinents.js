@@ -10,10 +10,8 @@ import HomeNavLink from "./HomeNavLink/HomeNavLink";
 const VisitAllContinents = (props) => {
 
     const [choosingCity, setChoosingCity] = useState(false);
-    const [totalCost, setTotalCost] = useState(0);
     const [totalCostArr, setTotalCostArr] = useState([]);
     const [queueCities, setQueueCities] = useState([]);
-    /* const [queueContinents, setQueueContinents] = useState([]);*/
 
     let queueContinents = props.queueContinents;
 
@@ -25,8 +23,6 @@ const VisitAllContinents = (props) => {
         if (!previousCity) return;
         totalCostArr.push(props.getCostCity(thisCity, props.getPreviousNumberСity(previousCity)));
         setTotalCostArr(totalCostArr);
-        const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
-        setTotalCost(sumWithInitial);
     }
     const choosingCityAdd = (thisCity, numberCity) => {
         if (setIndexOf(thisCity) == -1) {
@@ -45,8 +41,6 @@ const VisitAllContinents = (props) => {
             setQueueCities(queueCities);
             (totalCostArr.length > 0) && (totalCostArr.length = totalCostArr.length - 1);
             setTotalCostArr(totalCostArr);
-            const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
-            setTotalCost(sumWithInitial);
             setChoosingCity(!choosingCity);
         }
     }
@@ -59,15 +53,17 @@ const VisitAllContinents = (props) => {
                              choosingCityAdd={choosingCityAdd}/>
     });
 
+    let totalCost = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
     let setSaveResultsCont = () => {
         if (props.unique(queueContinents).length == 6) {
             props.setSaveResults(totalCost, queueCities.join('-'));
         }
     }
-console.log(queueContinents);
+    console.log('totalCostArr = ' + totalCostArr);
+    console.log('totalCost = ' + totalCost);
+
     const resetResults = () => {
         setQueueCities([]);
-        setTotalCost(0);
         setTotalCostArr([]);
         setChoosingCity(false);
         props.setQueueContinents();
