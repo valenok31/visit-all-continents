@@ -13,7 +13,9 @@ const VisitAllContinents = (props) => {
     const [totalCost, setTotalCost] = useState(0);
     const [totalCostArr, setTotalCostArr] = useState([]);
     const [queueCities, setQueueCities] = useState([]);
-    const [queueContinents, setQueueContinents] = useState([]);
+    /* const [queueContinents, setQueueContinents] = useState([]);*/
+
+    let queueContinents = props.queueContinents;
 
     const setIndexOf = (number) => {
         return queueCities.indexOf(number);
@@ -29,7 +31,7 @@ const VisitAllContinents = (props) => {
     const choosingCityAdd = (thisCity, numberCity) => {
         if (setIndexOf(thisCity) == -1) {
             queueContinents.push(props.getCityParameter(numberCity, 'continent'));
-            setQueueContinents(queueContinents);
+            props.setQueueContinents(queueContinents);
             queueCities.push(thisCity);
             setQueueCities(queueCities);
             setChoosingCity(!choosingCity);
@@ -38,7 +40,7 @@ const VisitAllContinents = (props) => {
         }
         if (thisCity == queueCities[queueCities.length - 1]) {
             queueContinents.splice(setIndexOf(thisCity), 1);
-            setQueueContinents(queueContinents);
+            props.setQueueContinents(queueContinents);
             queueCities.splice(setIndexOf(thisCity), 1);
             setQueueCities(queueCities);
             (totalCostArr.length > 0) && (totalCostArr.length = totalCostArr.length - 1);
@@ -62,13 +64,13 @@ const VisitAllContinents = (props) => {
             props.setSaveResults(totalCost, queueCities.join('-'));
         }
     }
-
+console.log(queueContinents);
     const resetResults = () => {
         setQueueCities([]);
         setTotalCost(0);
         setTotalCostArr([]);
         setChoosingCity(false);
-        setQueueContinents([]);
+        props.setQueueContinents();
     }
 
     return <div className={style.cities_in_game}>

@@ -1,4 +1,5 @@
 const SET_SAVE_RESULTS = 'SET_SAVE_RESULTS';
+const SET_QUEUE_CONTINENTS = 'SET_QUEUE_CONTINENTS';
 
 let initialState = {
     _cityAddParam: [
@@ -540,6 +541,7 @@ let initialState = {
     get paramCity() {
         return this._cityAddParam;
     },
+    queueContinents: [],
     getCostCity(thisCity, previousNumberСity) {
         return this.paramCity[previousNumberСity].cost[thisCity];
     },
@@ -579,6 +581,18 @@ const usersReducer = (state = initialState, action) => {
                         way: action.way,
                     }],
             }
+        case SET_QUEUE_CONTINENTS:
+            if(action.queueContinent){
+            return {
+                ...state,
+                queueContinents: action.queueContinent,
+            }}else{
+                return {
+                    ...state,
+                    queueContinents: [],
+                }
+            }
+
         default:
             return state;
     }
@@ -587,7 +601,9 @@ const usersReducer = (state = initialState, action) => {
 export const setSaveResults = (results, way) => ({
     type: SET_SAVE_RESULTS, results, way
 });
-
+export const setQueueContinents = (queueContinent) => ({
+    type: SET_QUEUE_CONTINENTS, queueContinent
+});
 
 
 export default usersReducer;
