@@ -545,9 +545,9 @@ let initialState = {
     getCostCity(thisCity, previousNumberСity) {
         return this.paramCity[previousNumberСity].cost[thisCity];
     },
-    getPreviousNumberСity(previousСity) {
+    getPreviousNumberCity(previousCity) {
         for (let i = 0; i < this.paramCity.length; i++) {
-            if (this.paramCity[i].name == previousСity) {
+            if (this.paramCity[i].name == previousCity) {
                 return i;
             }
         }

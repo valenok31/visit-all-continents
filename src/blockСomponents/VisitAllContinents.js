@@ -21,7 +21,7 @@ const VisitAllContinents = (props) => {
 
     const checkingCity = (previousCity, thisCity) => {
         if (!previousCity) return;
-        totalCostArr.push(props.getCostCity(thisCity, props.getPreviousNumberСity(previousCity)));
+        totalCostArr.push(props.getCostCity(thisCity, props.getPreviousNumberCity(previousCity)));
         setTotalCostArr(totalCostArr);
     }
     const choosingCityAdd = (thisCity, numberCity) => {

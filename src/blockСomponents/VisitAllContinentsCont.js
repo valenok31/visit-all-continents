@@ -15,16 +15,15 @@ class VisitAllContinentsCont extends React.Component {
         }
         return <>
             <VisitAllContinents
-                unique={unique}
-                getCostCity={this.props.getCostCity}
-                getCityParameter={this.props.getCityParameter}
-                getPreviousNumberСity={this.props.getPreviousNumberСity}
-                paramCity={this.props.paramCity}
-                gameResults={this.props.gameResults}
-                setSaveResults={this.props.setSaveResults}
-                setContinentsList={this.props.setContinentsList}
-                setQueueContinents={this.props.setQueueContinents}
-                queueContinents={this.props.queueContinents}
+                unique={unique}  //Уникальные континенты
+                getCostCity={this.props.getCostCity} //Возвращает стоимость перелета из прошлого города в текущий
+                getCityParameter={this.props.getCityParameter} //параметры города (координаты, континент, название)
+                getPreviousNumberCity={this.props.getPreviousNumberCity} //Возвращает номер города по его названию
+                paramCity={this.props.paramCity} //Копия базы городов
+                gameResults={this.props.gameResults} //массив результатов
+                setSaveResults={this.props.setSaveResults} // Сохраняем результат в gameResults
+                queueContinents={this.props.queueContinents} //массив посещенных городов
+                setQueueContinents={this.props.setQueueContinents} // добавляем континент в массив континентов (queueContinents)
             />
         </>
     }
@@ -36,8 +35,7 @@ let mapStateToProps = (state) => {
         gameResults: state.visitAllContinents_reducer.gameResults,
         getCostCity: state.visitAllContinents_reducer.getCostCity,
         getCityParameter: state.visitAllContinents_reducer.getCityParameter,
-        getPreviousNumberСity: state.visitAllContinents_reducer.getPreviousNumberСity,
-        setQueueContinents: state.visitAllContinents_reducer.setQueueContinents,
+        getPreviousNumberCity: state.visitAllContinents_reducer.getPreviousNumberCity,
         queueContinents: state.visitAllContinents_reducer.queueContinents,
 
     })
