@@ -157,11 +157,13 @@ let initialState = {
                 CAI: 852,
                 JNB: 1214,
                 IST: 588,
-                FRA: 756,
+                //756
+                FRA: 156,
                 CDG: 743,
                 LHR: 461,
                 JFK: 819,
-                LAX: 852,
+                //833
+                LAX: 219,
                 ATL: 1858,
                 SCL: 991,
                 BOG: 1308,
