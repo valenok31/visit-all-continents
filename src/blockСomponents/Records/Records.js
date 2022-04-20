@@ -1,13 +1,25 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
 import style from "../home/home.module.css";
-import PastResults from "../PastResults/PastResults";
 
 const Records = (props) => {
+    let sortable = [];
+    for (let vehicle in props.gameResults) {
+        sortable.push([props.gameResults[vehicle].result, props.gameResults[vehicle].way]);
+    }
+    sortable.sort(function (a, b) {
+        return a[0] - b[0];
+    });
 
+    sortable.length = props.quantity;
+    let pastResults = sortable.map(
+        (m) => {
+            return <li>{m[0]} - <span className={style.game_results__way}>{m[1]}</span></li>
+        }
+    );
     return <>
-
-        <div><PastResults {...props} quantity={props.quantity}/></div>
+        <ol>
+            {pastResults}
+        </ol>
     </>
 }
 

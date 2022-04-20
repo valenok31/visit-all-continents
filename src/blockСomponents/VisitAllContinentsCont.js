@@ -11,14 +11,14 @@ class VisitAllContinentsCont extends React.Component {
         }
         return <>
             <VisitAllContinents
-                unique={unique}  //Уникальные континенты
+                unique={unique}  //Уникальные посещенные континенты
                 getCostCity={this.props.getCostCity} //Возвращает стоимость перелета из прошлого города в текущий
                 getCityParameter={this.props.getCityParameter} //параметры города (координаты, континент, название)
                 getPreviousNumberCity={this.props.getPreviousNumberCity} //Возвращает номер города по его названию
                 paramCity={this.props.paramCity} //Копия базы городов
                 gameResults={this.props.gameResults} //массив результатов
                 setSaveResults={this.props.setSaveResults} // Сохраняем результат в gameResults
-                queueContinents={this.props.queueContinents} //массив посещенных городов
+                queueContinents={this.props.queueContinents} //массив посещенных континентов
                 setQueueContinents={this.props.setQueueContinents} // добавляем континент в массив континентов (queueContinents)
             />
 
