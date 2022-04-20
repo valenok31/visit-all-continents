@@ -6,6 +6,7 @@ import ButtonSaveResults from "./ButtonSaveResults/ButtonSaveResults";
 import Records from "./Records/Records";
 import CheckVisitedContinents from "./CheckVisitedContinents/CheckVisitedContinents";
 import HomeNavLink from "./HomeNavLink/HomeNavLink";
+import TotalCost from "./TotalCost/TotalCost";
 
 const VisitAllContinents = (props) => {
 
@@ -66,25 +67,37 @@ const VisitAllContinents = (props) => {
         setChoosingCity(false);
         props.setQueueContinents();
     }
+/*    let propsInNext={
+        unique: props.unique,
+        queueContinents: queueContinents,
+        gameResults: props.gameResults,
+        totalCost: totalCost,
+        resetResults: resetResults(),
+        setSaveResultsCont: setSaveResultsCont(),
+        quantity: '2',
+    }*/
 
     return <div className={style.cities_in_game}>
         <HomeNavLink/>
-        <CheckVisitedContinents unique={props.unique} queueContinents={queueContinents}/>
+        <CheckVisitedContinents
+            unique={props.unique}//*
+            queueContinents={queueContinents}/>
         <img src={worldMap} alt='World Map' className={style.world_map}/>
         {citiesInGame}
-        <div className={style.game_results}>
-            <div>
-                {props.unique(queueContinents).length != 6 ?
-                    <div className={style.total_cost}>${totalCost}</div> :
-                    <div className={style.total_cost}>Great! <b>{totalCost}</b></div>}
-                <ButtonSaveResults
-                    unique={props.unique}
-                    queueContinents={queueContinents}
-                    resetResults={resetResults}
-                    setSaveResultsCont={setSaveResultsCont}/>
-                <Records gameResults={props.gameResults} quantity='5'/>
-            </div>
-        </div>
+        <TotalCost
+            totalCost={totalCost}
+            queueContinents={queueContinents}
+            unique={props.unique}/>
+        <ButtonSaveResults
+            unique={props.unique}//*
+            queueContinents={queueContinents}
+            resetResults={resetResults}
+            setSaveResultsCont={setSaveResultsCont}/>
+        <Records
+            gameResults={props.gameResults}
+            quantity='2'/>
+
+
     </div>
 }
 
