@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const SET_SAVE_RESULTS = 'SET_SAVE_RESULTS';
 const SET_QUEUE_CONTINENTS = 'SET_QUEUE_CONTINENTS';
 
@@ -575,6 +577,7 @@ let initialState = {
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_SAVE_RESULTS:
+            postResult(action.results, action.way);
             return {
                 ...state,
                 gameResults: [...state.gameResults,
@@ -606,6 +609,22 @@ export const setSaveResults = (results, way) => ({
 export const setQueueContinents = (queueContinent) => ({
     type: SET_QUEUE_CONTINENTS, queueContinent
 });
+
+
+let postResult = (result, way) => {
+    axios.post('https://62617d9673499e9af90d4345.mockapi.io/api/v1/gameResults', {
+        result: result,
+        way: way,
+    })
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+}
+
 
 
 export default usersReducer;

@@ -10,7 +10,9 @@
     background-repeat: repeat;
     background-size: 30%;
 }
-
+ol{
+    position: absolute;
+}
 .nLink{
     text-decoration: none;
     font-family: "Trebuchet MS", Helvetica, sans-serif;

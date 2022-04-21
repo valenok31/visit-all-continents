@@ -2,8 +2,23 @@ import React from "react";
 import {connect} from "react-redux";
 import VisitAllContinents from "./VisitAllContinents";
 import {setQueueContinents, setSaveResults} from "../redux/visitAllContinents_reducer";
+import axios from "axios";
 
 class VisitAllContinentsCont extends React.Component {
+
+
+componentDidMount() {
+    axios.get('https://62617d9673499e9af90d4345.mockapi.io/api/v1/gameResults')
+        .then(function (response) {
+            console.log(response.data);
+
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+}
+
 
     render() {
         const unique = (queueContinent) => {
