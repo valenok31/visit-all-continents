@@ -11,12 +11,10 @@ componentDidMount() {
     axios.get('https://62617d9673499e9af90d4345.mockapi.io/api/v1/gameResults')
         .then(function (response) {
             console.log(response.data);
-
         })
         .catch(function (error) {
             console.log(error);
         });
-
 }
 
 
