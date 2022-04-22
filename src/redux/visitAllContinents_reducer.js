@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const SET_SAVE_RESULTS = 'SET_SAVE_RESULTS';
+const GET_SAVE_RESULTS = 'GET_SAVE_RESULTS';
 const SET_QUEUE_CONTINENTS = 'SET_QUEUE_CONTINENTS';
 
 let initialState = {
@@ -578,20 +579,21 @@ const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_SAVE_RESULTS:
             postResult(action.results, action.way);
+            return state;
+
+        case GET_SAVE_RESULTS:
             return {
                 ...state,
-                gameResults: [...state.gameResults,
-                    {
-                        result: action.results,
-                        way: action.way,
-                    }],
+                gameResults: action.gameResults,
             }
+
         case SET_QUEUE_CONTINENTS:
-            if(action.queueContinent){
-            return {
-                ...state,
-                queueContinents: action.queueContinent,
-            }}else{
+            if (action.queueContinent) {
+                return {
+                    ...state,
+                    queueContinents: action.queueContinent,
+                }
+            } else {
                 return {
                     ...state,
                     queueContinents: [],
@@ -606,6 +608,10 @@ const usersReducer = (state = initialState, action) => {
 export const setSaveResults = (results, way) => ({
     type: SET_SAVE_RESULTS, results, way
 });
+export const getSaveResults = (gameResults) => ({
+    type: GET_SAVE_RESULTS, gameResults
+});
+
 export const setQueueContinents = (queueContinent) => ({
     type: SET_QUEUE_CONTINENTS, queueContinent
 });
@@ -617,14 +623,13 @@ let postResult = (result, way) => {
         way: way,
     })
         .then(function (response) {
-            console.log(response.data);
+            //console.log(response.data);
         })
         .catch(function (error) {
-            console.log(error);
+            //console.log(error);
         });
 
 }
-
 
 
 export default usersReducer;

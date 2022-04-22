@@ -1,21 +1,10 @@
 import React from "react";
 import {connect} from "react-redux";
 import VisitAllContinents from "./VisitAllContinents";
-import {setQueueContinents, setSaveResults} from "../redux/visitAllContinents_reducer";
+import {getSaveResults, setQueueContinents, setSaveResults} from "../redux/visitAllContinents_reducer";
 import axios from "axios";
 
 class VisitAllContinentsCont extends React.Component {
-
-
-componentDidMount() {
-    axios.get('https://62617d9673499e9af90d4345.mockapi.io/api/v1/gameResults')
-        .then(function (response) {
-            console.log(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
 
 
     render() {
@@ -33,6 +22,8 @@ componentDidMount() {
                 setSaveResults={this.props.setSaveResults} // Сохраняем результат в gameResults
                 queueContinents={this.props.queueContinents} //массив посещенных континентов
                 setQueueContinents={this.props.setQueueContinents} // добавляем континент в массив континентов (queueContinents)
+
+                getSaveResults={getSaveResults}
             />
 
         </>
@@ -51,4 +42,4 @@ let mapStateToProps = (state) => {
     })
 };
 
-export default connect(mapStateToProps, {setSaveResults, setQueueContinents})(VisitAllContinentsCont)
+export default connect(mapStateToProps, {setSaveResults, setQueueContinents,getSaveResults})(VisitAllContinentsCont)

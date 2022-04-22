@@ -55,6 +55,7 @@ const VisitAllContinents = (props) => {
     });
 
     let totalCost = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
+
     let setSaveResultsCont = () => {
         if (props.unique(queueContinents).length == 6) {
             props.setSaveResults(totalCost, queueCities.join('-'));
