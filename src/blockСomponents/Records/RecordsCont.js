@@ -13,8 +13,6 @@ class RecordsCont extends React.Component {
      axios.get('https://62617d9673499e9af90d4345.mockapi.io/api/v1/gameResults')
             .then(response => {
                 this.props.getSaveResults(response.data)
-              console.log(response.data);
-
             })
     }
 

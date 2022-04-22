@@ -4,7 +4,6 @@ import style from "../home/home.module.css";
 const RecordsFromAPI = (props) => {
 
     let sortable = [];
-    console.log('props= ' + props.gameResultFromAPI);
     for (let vehicle in props.gameResultFromAPI) {
 
         sortable.push([props.gameResultFromAPI[vehicle].result, props.gameResultFromAPI[vehicle].way]);

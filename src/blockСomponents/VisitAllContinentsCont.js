@@ -22,8 +22,6 @@ class VisitAllContinentsCont extends React.Component {
                 setSaveResults={this.props.setSaveResults} // Сохраняем результат в gameResults
                 queueContinents={this.props.queueContinents} //массив посещенных континентов
                 setQueueContinents={this.props.setQueueContinents} // добавляем континент в массив континентов (queueContinents)
-
-                getSaveResults={getSaveResults}
             />
 
         </>
@@ -42,4 +40,4 @@ let mapStateToProps = (state) => {
     })
 };
 
-export default connect(mapStateToProps, {setSaveResults, setQueueContinents,getSaveResults})(VisitAllContinentsCont)
+export default connect(mapStateToProps, {setSaveResults, setQueueContinents})(VisitAllContinentsCont)
