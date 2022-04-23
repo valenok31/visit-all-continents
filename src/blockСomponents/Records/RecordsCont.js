@@ -6,6 +6,7 @@ import style from "./records.module.css";
 import axios from "axios";
 import RecordsFromAPI from "./RecordsFromAPI";
 import {getSaveResults, setSaveResults} from "../../redux/visitAllContinents_reducer";
+import Loading from "../loading/Loading";
 
 class RecordsCont extends React.Component {
 
@@ -21,6 +22,7 @@ class RecordsCont extends React.Component {
     render() {
 
         return <div>
+            {false ? <Loading/> : ''}
             <div>
                 <NavLink to='/' className={style.nLink}>
                     <div>Home</div>
