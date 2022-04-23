@@ -3,6 +3,7 @@ import axios from "axios";
 const SET_SAVE_RESULTS = 'SET_SAVE_RESULTS';
 const GET_SAVE_RESULTS = 'GET_SAVE_RESULTS';
 const SET_QUEUE_CONTINENTS = 'SET_QUEUE_CONTINENTS';
+const SET_SWITCH_LOADING = 'SET_SWITCH_LOADING';
 
 let initialState = {
     _cityAddParam: [
@@ -573,6 +574,7 @@ let initialState = {
                 return
         }
     },
+    switchLoading: true,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -600,6 +602,12 @@ const usersReducer = (state = initialState, action) => {
                 }
             }
 
+        case SET_SWITCH_LOADING:
+            return {
+                ...state,
+                switchLoading: action.switchLoading,
+            }
+
         default:
             return state;
     }
@@ -614,6 +622,10 @@ export const getSaveResults = (gameResults) => ({
 
 export const setQueueContinents = (queueContinent) => ({
     type: SET_QUEUE_CONTINENTS, queueContinent
+});
+
+export const setSwitchLoading = (switchLoading) => ({
+    type: SET_SWITCH_LOADING, switchLoading
 });
 
 
