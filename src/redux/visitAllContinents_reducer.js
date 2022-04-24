@@ -4,6 +4,7 @@ const SET_SAVE_RESULTS = 'SET_SAVE_RESULTS';
 const GET_SAVE_RESULTS = 'GET_SAVE_RESULTS';
 const SET_QUEUE_CONTINENTS = 'SET_QUEUE_CONTINENTS';
 const SET_SWITCH_LOADING = 'SET_SWITCH_LOADING';
+const SET_PLAYER_NAME = 'SET_PLAYER_NAME';
 
 let initialState = {
     _cityAddParam: [
@@ -575,12 +576,13 @@ let initialState = {
         }
     },
     switchLoading: true,
+    playerName: '',
 }
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_SAVE_RESULTS:
-            postResult(action.results, action.way);
+            postResult(action.results, action.way, action.playerName);
             return state;
 
         case GET_SAVE_RESULTS:
@@ -607,14 +609,20 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 switchLoading: action.switchLoading,
             }
+        case SET_PLAYER_NAME:
+            debugger
+            return {
+                ...state,
+                playerName: action.playerName,
+            }
 
         default:
             return state;
     }
 }
 
-export const setSaveResults = (results, way) => ({
-    type: SET_SAVE_RESULTS, results, way
+export const setSaveResults = (results, way, playerName) => ({
+    type: SET_SAVE_RESULTS, results, way, playerName
 });
 export const getSaveResults = (gameResults) => ({
     type: GET_SAVE_RESULTS, gameResults
@@ -628,11 +636,16 @@ export const setSwitchLoading = (switchLoading) => ({
     type: SET_SWITCH_LOADING, switchLoading
 });
 
+export const setPlayerName = (playerName) => ({
+    type: SET_PLAYER_NAME, playerName
+});
 
-let postResult = (result, way) => {
+
+let postResult = (result, way, playerName) => {
     axios.post('https://62617d9673499e9af90d4345.mockapi.io/api/v1/gameResults', {
         result: result,
         way: way,
+        name: playerName,
     })
         .then(function (response) {
             //console.log(response.data);

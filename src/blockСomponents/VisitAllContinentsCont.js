@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import VisitAllContinents from "./VisitAllContinents";
-import {getSaveResults, setQueueContinents, setSaveResults} from "../redux/visitAllContinents_reducer";
+import {getSaveResults, setPlayerName, setQueueContinents, setSaveResults} from "../redux/visitAllContinents_reducer";
 import axios from "axios";
 
 class VisitAllContinentsCont extends React.Component {
@@ -22,6 +22,8 @@ class VisitAllContinentsCont extends React.Component {
                 setSaveResults={this.props.setSaveResults} // Сохраняем результат в gameResults
                 queueContinents={this.props.queueContinents} //массив посещенных континентов
                 setQueueContinents={this.props.setQueueContinents} // добавляем континент в массив континентов (queueContinents)
+                playerName={this.props.playerName} // имя игрока
+                setPlayerName={this.props.setPlayerName} // Сохраняем имя
             />
 
         </>
@@ -31,13 +33,13 @@ class VisitAllContinentsCont extends React.Component {
 let mapStateToProps = (state) => {
     return ({
         gameResults: state.visitAllContinents_reducer.gameResults,
-              paramCity: state.visitAllContinents_reducer.paramCity,
-                getCostCity: state.visitAllContinents_reducer.getCostCity,
-                getCityParameter: state.visitAllContinents_reducer.getCityParameter,
-                getPreviousNumberCity: state.visitAllContinents_reducer.getPreviousNumberCity,
-                queueContinents: state.visitAllContinents_reducer.queueContinents,
-
+        paramCity: state.visitAllContinents_reducer.paramCity,
+        getCostCity: state.visitAllContinents_reducer.getCostCity,
+        getCityParameter: state.visitAllContinents_reducer.getCityParameter,
+        getPreviousNumberCity: state.visitAllContinents_reducer.getPreviousNumberCity,
+        queueContinents: state.visitAllContinents_reducer.queueContinents,
+        playerName: state.visitAllContinents_reducer.playerName,
     })
 };
 
-export default connect(mapStateToProps, {setSaveResults, setQueueContinents})(VisitAllContinentsCont)
+export default connect(mapStateToProps, {setSaveResults, setQueueContinents, setPlayerName})(VisitAllContinentsCont)

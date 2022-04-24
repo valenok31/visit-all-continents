@@ -7,6 +7,7 @@ import Records from "./Records/Records";
 import CheckVisitedContinents from "./CheckVisitedContinents/CheckVisitedContinents";
 import HomeNavLink from "./HomeNavLink/HomeNavLink";
 import TotalCost from "./TotalCost/TotalCost";
+import InputFormPlayerName from "./inputFormPlayerName/InputFormPlayerName";
 
 const VisitAllContinents = (props) => {
 
@@ -58,7 +59,7 @@ const VisitAllContinents = (props) => {
 
     let setSaveResultsCont = () => {
         if (props.unique(queueContinents).length == 6) {
-            props.setSaveResults(totalCost, queueCities.join('-'));
+            props.setSaveResults(totalCost, queueCities.join('-'), props.playerName);
         }
     }
 
@@ -68,20 +69,21 @@ const VisitAllContinents = (props) => {
         setChoosingCity(false);
         props.setQueueContinents();
     }
-/*    let propsInNext={
-        unique: props.unique,
-        queueContinents: queueContinents,
-        gameResults: props.gameResults,
-        totalCost: totalCost,
-        resetResults: resetResults(),
-        setSaveResultsCont: setSaveResultsCont(),
-        quantity: '2',
-    }*/
-
+    /*    let propsInNext={
+            unique: props.unique,
+            queueContinents: queueContinents,
+            gameResults: props.gameResults,
+            totalCost: totalCost,
+            resetResults: resetResults(),
+            setSaveResultsCont: setSaveResultsCont(),
+            quantity: '2',
+        }*/
+console.log(props.playerName);
     return <div className={style.cities_in_game}>
         <HomeNavLink/>
+        {!props.playerName ? <InputFormPlayerName setPlayerName={props.setPlayerName}/> : ''}
         <CheckVisitedContinents
-            unique={props.unique}//*
+            unique={props.unique}
             queueContinents={queueContinents}/>
         <img src={worldMap} alt='World Map' className={style.world_map}/>
         {citiesInGame}
@@ -90,7 +92,7 @@ const VisitAllContinents = (props) => {
             queueContinents={queueContinents}
             unique={props.unique}/>
         <ButtonSaveResults
-            unique={props.unique}//*
+            unique={props.unique}
             queueContinents={queueContinents}
             resetResults={resetResults}
             setSaveResultsCont={setSaveResultsCont}/>

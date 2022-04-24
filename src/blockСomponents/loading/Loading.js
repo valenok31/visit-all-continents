@@ -4,9 +4,9 @@ import style from "./Loading.module.css"
 
 const Loading = (props) => {
     return <>
-    <div>
-        <img className={style.loadingImg} src={loadingImg} alt='loading'/>
-    </div>
+        <div>
+            <img className={style.loadingImg} src={loadingImg} alt='loading'/>
+        </div>
     </>
 }
 
