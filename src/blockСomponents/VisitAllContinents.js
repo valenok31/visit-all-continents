@@ -72,7 +72,6 @@ const VisitAllContinents = (props) => {
         props.setQueueContinents();
     }
 
-    console.log(props.playerName);
     return <div className={style.cities_in_game}>
         <HomeNavLink/>
         {!props.playerName ?

@@ -545,12 +545,12 @@ let initialState = {
         },
 
     ],
-    gameResults: [],
-    switchEndGame: false,
+    gameResults: [], //-
+    switchEndGame: false, //-
     get paramCity() {
         return this._cityAddParam;
     },
-    queueContinents: [],
+    queueContinents: [], //-
     getCostCity(thisCity, previousNumberСity) {
         return this.paramCity[previousNumberСity].cost[thisCity];
     },
@@ -577,8 +577,8 @@ let initialState = {
                 return
         }
     },
-    switchLoading: true,
-    playerName: '',
+    switchLoading: true, //-
+    playerName: '', //-
 }
 
 const usersReducer = (state = initialState, action) => {
