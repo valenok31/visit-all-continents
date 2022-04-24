@@ -81,6 +81,7 @@ const VisitAllContinents = (props) => {
             <EndGame setSwitchEndGame={props.setSwitchEndGame}
                      totalCost={totalCost}
                      resetResults={resetResults}
+                     gameResults={props.gameResults}
                      queueCities={queueCities.join('-')}
                      playerName={props.playerName}/> : ''}
         <CheckVisitedContinents
@@ -97,9 +98,7 @@ const VisitAllContinents = (props) => {
             queueContinents={queueContinents}
             resetResults={resetResults}
             setSaveResultsCont={setSaveResultsCont}/>
-        <Records
-            gameResults={props.gameResults}
-            quantity='2'/>
+
 
 
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./EndGame.module.css"
 import {NavLink} from "react-router-dom";
+import Records from "../Records/Records";
 
 const EndGame = (props) => {
         return <>
@@ -15,8 +16,10 @@ const EndGame = (props) => {
                         props.setSwitchEndGame(false);
                         props.resetResults();}}>Рекорды</button>
             </NavLink>
-
-
+<h3>Лучшая десятка:</h3>
+            <Records
+                gameResults={props.gameResults}
+                quantity='10'/>
         </div>
     </>
 }
