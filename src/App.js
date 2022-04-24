@@ -14,7 +14,7 @@ let App = (props) => {
         <div>
           <Routes>
             <Route exact path="/" element={<Home/>}/>
-            <Route path="/game" element={<VisitAllContinentsCont/>}/>
+            <Route exact path="/game" element={<VisitAllContinentsCont/>}/>
             <Route path="/gamerules" element={<GameRules/>}/>
             <Route path="/records" element={<RecordsCont/>}/>
             <Route path="/*" element={<Error/>}/>

@@ -1,11 +1,20 @@
 import React from "react";
 import {connect} from "react-redux";
 import VisitAllContinents from "./VisitAllContinents";
-import {getSaveResults, setPlayerName, setQueueContinents, setSaveResults} from "../redux/visitAllContinents_reducer";
+import {
+    getSaveResults,
+    setPlayerName,
+    setQueueContinents,
+    setSaveResults,
+    setSwitchEndGame
+} from "../redux/visitAllContinents_reducer";
 import axios from "axios";
 
 class VisitAllContinentsCont extends React.Component {
 
+    componentDidMount() {
+        this.props.setQueueContinents();
+    }
 
     render() {
         const unique = (queueContinent) => {
@@ -24,6 +33,8 @@ class VisitAllContinentsCont extends React.Component {
                 setQueueContinents={this.props.setQueueContinents} // добавляем континент в массив континентов (queueContinents)
                 playerName={this.props.playerName} // имя игрока
                 setPlayerName={this.props.setPlayerName} // Сохраняем имя
+                setSwitchEndGame={this.props.setSwitchEndGame} // переключатель окна EndGame
+                switchEndGame={this.props.switchEndGame} // состояние переключателя окна EndGame
             />
 
         </>
@@ -39,7 +50,8 @@ let mapStateToProps = (state) => {
         getPreviousNumberCity: state.visitAllContinents_reducer.getPreviousNumberCity,
         queueContinents: state.visitAllContinents_reducer.queueContinents,
         playerName: state.visitAllContinents_reducer.playerName,
+        switchEndGame: state.visitAllContinents_reducer.switchEndGame,
     })
 };
 
-export default connect(mapStateToProps, {setSaveResults, setQueueContinents, setPlayerName})(VisitAllContinentsCont)
+export default connect(mapStateToProps, {setSaveResults, setQueueContinents, setPlayerName,setSwitchEndGame})(VisitAllContinentsCont)

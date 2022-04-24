@@ -8,6 +8,7 @@ import CheckVisitedContinents from "./CheckVisitedContinents/CheckVisitedContine
 import HomeNavLink from "./HomeNavLink/HomeNavLink";
 import TotalCost from "./TotalCost/TotalCost";
 import InputFormPlayerName from "./inputFormPlayerName/InputFormPlayerName";
+import EndGame from "./endGame/EndGame";
 
 const VisitAllContinents = (props) => {
 
@@ -60,6 +61,7 @@ const VisitAllContinents = (props) => {
     let setSaveResultsCont = () => {
         if (props.unique(queueContinents).length == 6) {
             props.setSaveResults(totalCost, queueCities.join('-'), props.playerName);
+            props.setSwitchEndGame(true);
         }
     }
 
@@ -69,19 +71,18 @@ const VisitAllContinents = (props) => {
         setChoosingCity(false);
         props.setQueueContinents();
     }
-    /*    let propsInNext={
-            unique: props.unique,
-            queueContinents: queueContinents,
-            gameResults: props.gameResults,
-            totalCost: totalCost,
-            resetResults: resetResults(),
-            setSaveResultsCont: setSaveResultsCont(),
-            quantity: '2',
-        }*/
-console.log(props.playerName);
+
+    console.log(props.playerName);
     return <div className={style.cities_in_game}>
         <HomeNavLink/>
-        {!props.playerName ? <InputFormPlayerName setPlayerName={props.setPlayerName}/> : ''}
+        {!props.playerName ?
+            <InputFormPlayerName setPlayerName={props.setPlayerName}/> : ''}
+        {props.switchEndGame ?
+            <EndGame setSwitchEndGame={props.setSwitchEndGame}
+                     totalCost={totalCost}
+                     resetResults={resetResults}
+                     queueCities={queueCities.join('-')}
+                     playerName={props.playerName}/> : ''}
         <CheckVisitedContinents
             unique={props.unique}
             queueContinents={queueContinents}/>

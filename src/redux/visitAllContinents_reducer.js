@@ -5,6 +5,7 @@ const GET_SAVE_RESULTS = 'GET_SAVE_RESULTS';
 const SET_QUEUE_CONTINENTS = 'SET_QUEUE_CONTINENTS';
 const SET_SWITCH_LOADING = 'SET_SWITCH_LOADING';
 const SET_PLAYER_NAME = 'SET_PLAYER_NAME';
+const SET_SWITCH_ENDGAME = 'SET_SWITCH_ENDGAME';
 
 let initialState = {
     _cityAddParam: [
@@ -545,6 +546,7 @@ let initialState = {
 
     ],
     gameResults: [],
+    switchEndGame: false,
     get paramCity() {
         return this._cityAddParam;
     },
@@ -609,6 +611,11 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 switchLoading: action.switchLoading,
             }
+            case SET_SWITCH_ENDGAME:
+            return {
+                ...state,
+                switchEndGame: action.switchEndGame,
+            }
         case SET_PLAYER_NAME:
             debugger
             return {
@@ -634,6 +641,9 @@ export const setQueueContinents = (queueContinent) => ({
 
 export const setSwitchLoading = (switchLoading) => ({
     type: SET_SWITCH_LOADING, switchLoading
+});
+export const setSwitchEndGame = (switchEndGame) => ({
+    type: SET_SWITCH_ENDGAME, switchEndGame
 });
 
 export const setPlayerName = (playerName) => ({
