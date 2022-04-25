@@ -7,7 +7,7 @@ import {
     setQueueContinents,
     setSaveResults,
     setSwitchEndGame
-} from "../redux/visitAllContinents_reducer";
+} from "../redux/gameManagement_reducer";
 import axios from "axios";
 
 class VisitAllContinentsCont extends React.Component {
@@ -43,14 +43,15 @@ class VisitAllContinentsCont extends React.Component {
 
 let mapStateToProps = (state) => {
     return ({
-        gameResults: state.visitAllContinents_reducer.gameResults,
-        paramCity: state.visitAllContinents_reducer.paramCity,
-        getCostCity: state.visitAllContinents_reducer.getCostCity,
-        getCityParameter: state.visitAllContinents_reducer.getCityParameter,
-        getPreviousNumberCity: state.visitAllContinents_reducer.getPreviousNumberCity,
-        queueContinents: state.visitAllContinents_reducer.queueContinents,
-        playerName: state.visitAllContinents_reducer.playerName,
-        switchEndGame: state.visitAllContinents_reducer.switchEndGame,
+        paramCity: state.startingData_reducer.paramCity,
+        getCostCity: state.startingData_reducer.getCostCity,
+        getPreviousNumberCity: state.startingData_reducer.getPreviousNumberCity,
+        getCityParameter: state.startingData_reducer.getCityParameter,
+
+        gameResults: state.gameManagement_reducer.gameResults,
+        queueContinents: state.gameManagement_reducer.queueContinents,
+        playerName: state.gameManagement_reducer.playerName,
+        switchEndGame: state.gameManagement_reducer.switchEndGame,
     })
 };
 

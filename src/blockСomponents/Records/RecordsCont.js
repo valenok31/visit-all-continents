@@ -1,11 +1,9 @@
 import React from "react";
 import {connect} from "react-redux";
-import Records from "./Records";
-import {NavLink} from "react-router-dom";
 import style from "./records.module.css";
 import axios from "axios";
 import RecordsFromAPI from "./RecordsFromAPI";
-import {getSaveResults, setSaveResults, setSwitchLoading} from "../../redux/visitAllContinents_reducer";
+import {getSaveResults, setSwitchLoading} from "../../redux/gameManagement_reducer";
 import Loading from "../loading/Loading";
 import HomeNavLink from "../HomeNavLink/HomeNavLink";
 
@@ -39,8 +37,8 @@ class RecordsCont extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-    gameResults: state.visitAllContinents_reducer.gameResults,
-    switchLoading: state.visitAllContinents_reducer.switchLoading,
+    gameResults: state.gameManagement_reducer.gameResults,
+    switchLoading: state.gameManagement_reducer.switchLoading,
 })
 
 export default connect(mapStateToProps, {getSaveResults, setSwitchLoading})(RecordsCont)
