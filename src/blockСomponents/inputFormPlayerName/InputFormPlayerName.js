@@ -5,9 +5,9 @@ import * as Yup from 'yup';
 
 const SignupSchema = Yup.object().shape({
     firstName: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
+        .min(2, 'Слишком короткое!')
+        .max(50, 'Слишком длинное!')
+        .required('Это обязательно'),
 });
 
 const InputFormPlayerName = (props) => {
@@ -24,19 +24,14 @@ const InputFormPlayerName = (props) => {
                     props.setPlayerName(values.firstName)
                 }}
             >
-{/*                <Form>
-                    <label htmlFor="firstName">First Name</label>
-                    <Field id="firstName" name="firstName" placeholder="Jane"/>
-                    <button type="submit">Submit</button>
-                </Form>*/}
                 {({ errors, touched }) => (
                     <Form>
-                        <label htmlFor="firstName">First Name</label>
+                        <label htmlFor="firstName">Имя</label>
                         <Field id="firstName" name="firstName" placeholder="Jane"/>
                         {errors.firstName && touched.firstName ? (
                             <span>{errors.firstName}</span>
                         ) : null}
-                        <div><button type="submit">Submit</button></div>
+                        <div><button type="submit">Вперед!</button></div>
 
                     </Form>
                 )}

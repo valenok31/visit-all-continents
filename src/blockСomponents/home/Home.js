@@ -6,17 +6,17 @@ const Home = () => {
     return <div className={style.center_me}>
         <div>
             <NavLink to='/game' className={style.nLink}>
-                <div>Start</div>
+                <div>Играть</div>
             </NavLink>
         </div>
         <div>
             <NavLink to='/gamerules' className={style.nLink}>
-                <div>Game rules</div>
+                <div>Правила</div>
             </NavLink>
         </div>
         <div>
             <NavLink to='/records' className={style.nLink}>
-                <div>Records</div>
+                <div>Рекорды</div>
             </NavLink>
         </div>
     </div>

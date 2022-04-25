@@ -4,7 +4,7 @@ import style from './HomeNavLink.module.css';
 
 const HomeNavLink = () => {
     return <NavLink to='/' className={style.nLink}>
-        <div>Home</div>
+        <div>На главную</div>
     </NavLink>
 
 }

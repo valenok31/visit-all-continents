@@ -27,7 +27,7 @@ class RecordsCont extends React.Component {
             <div>
                 <HomeNavLink/>
             </div>
-            <div className={style.heading}>Hall of Fame from API</div>
+            <div className={style.heading}>Лучшие результаты</div>
             <div className={style.list_results}>
                 <div className={style.list_results__records}><RecordsFromAPI
                     gameResultFromAPI={this.props.gameResults}/></div>

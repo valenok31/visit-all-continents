@@ -99,7 +99,6 @@ const VisitAllContinents = (props) => {
             setSaveResultsCont={setSaveResultsCont}/>
 
 
-
     </div>
 }
 

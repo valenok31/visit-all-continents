@@ -13,7 +13,7 @@ const RecordsFromAPI = (props) => {
     });
     let pastResults = sortable.map(
         (m) => {
-            return <li title={m[1]}>{m[0]} - <span className={style.game_results__way}>{m[2]}</span></li>
+            return <li title={m[1]}>${m[0]} - <span className={style.game_results__way}>{m[2]}</span></li>
         }
     );
     return <>

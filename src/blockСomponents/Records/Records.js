@@ -13,7 +13,7 @@ const Records = (props) => {
     if (props.quantity) {sortable.length = props.quantity;}
     let pastResults = sortable.map(
         (m) => {
-            return <li>{m[0]} - <span className={style.game_results__way}>{m[1]}</span></li>
+            return <li>${m[0]} - <span className={style.game_results__way}>{m[1]}</span></li>
         }
     );
     return <>
