@@ -1,10 +1,14 @@
 .data_entry{
     position: absolute;
-    top: calc(50vh - 200px);
-    left: calc(50vw - 250px);
-    width: 500px;
-    height: 400px;
+    top: 0vh;
+    left: 0vw;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(255, 255, 255, 0.8);
-    border: #0017ff 2px solid;
 z-index: 200;
+    text-align: center;
+}
+
+h3{
+    margin: 10px 0 0 0;
 }

@@ -6,13 +6,20 @@ import {
     setPlayerName,
     setQueueContinents,
     setSaveResults,
-    setSwitchEndGame
+    setSwitchEndGame, setSwitchLoading
 } from "../redux/gameManagement_reducer";
+import axios from "axios";
 
 class VisitAllContinentsCont extends React.Component {
 
     componentDidMount() {
         this.props.setQueueContinents();
+        this.props.setSwitchLoading(true);
+        axios.get('https://62617d9673499e9af90d4345.mockapi.io/api/v1/gameResults')
+            .then(response => {
+                this.props.getSaveResults(response.data);
+                this.props.setSwitchLoading(false);
+            })
     }
 
     render() {
@@ -53,4 +60,9 @@ let mapStateToProps = (state) => {
     })
 };
 
-export default connect(mapStateToProps, {setSaveResults, setQueueContinents, setPlayerName,setSwitchEndGame})(VisitAllContinentsCont)
+export default connect(mapStateToProps,
+    {
+        setSaveResults, setQueueContinents,
+        setPlayerName, setSwitchEndGame,
+        getSaveResults, setSwitchLoading
+    })(VisitAllContinentsCont)

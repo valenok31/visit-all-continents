@@ -12,7 +12,19 @@
 }
 ol{
     position: absolute;
+    display: block;
+    text-align: center;
+    width: 100vw;
+    margin: 0 35vw;
 }
+
+li{
+    text-align: left;
+    width: 30vw;
+    margin: 0;
+}
+
+
 .nLink{
     text-decoration: none;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
