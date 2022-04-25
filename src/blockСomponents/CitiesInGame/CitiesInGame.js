@@ -13,7 +13,7 @@ const CitiesInGame = (props) => {
              onClick={() => props.choosingCityAdd(props.a.name, props.numberCity)}>
         </div>
         <div className={style.city__name}>
-            {props.setIndexOf(props.a.name) == -1 ? '' : `${props.setIndexOf(props.a.name) + 1}`}
+            {props.setIndexOf(props.a.name) == -1 ? props.getCityParameter(props.numberCity, 'title') : `${props.setIndexOf(props.a.name) + 1}`}
         </div>
     </div>
 }

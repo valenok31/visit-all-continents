@@ -364,7 +364,7 @@ let initialState = {
                 GRU: 303,
             },
             lon: 473,
-            lat: 180,
+            lat: 175,
             continent: 'Европа',
         },
         {
