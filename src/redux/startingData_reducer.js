@@ -534,8 +534,7 @@ let initialState = {
             lon: 348,
             lat: 644,
             continent: 'Южная Америка',
-        },
-
+        }
     ],
     get paramCity() {
         return this._cityAddParam;

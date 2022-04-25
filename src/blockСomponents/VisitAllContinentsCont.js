@@ -8,7 +8,6 @@ import {
     setSaveResults,
     setSwitchEndGame
 } from "../redux/gameManagement_reducer";
-import axios from "axios";
 
 class VisitAllContinentsCont extends React.Component {
 
@@ -36,7 +35,6 @@ class VisitAllContinentsCont extends React.Component {
                 setSwitchEndGame={this.props.setSwitchEndGame} // переключатель окна EndGame
                 switchEndGame={this.props.switchEndGame} // состояние переключателя окна EndGame
             />
-
         </>
     }
 }

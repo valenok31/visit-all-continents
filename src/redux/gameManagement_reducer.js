@@ -8,11 +8,11 @@ const SET_PLAYER_NAME = 'SET_PLAYER_NAME';
 const SET_SWITCH_ENDGAME = 'SET_SWITCH_ENDGAME';
 
 let initialState = {
-    gameResults: [], //-
-    switchEndGame: false, //-
-    queueContinents: [], //-
-    switchLoading: true, //-
-    playerName: '', //-
+    gameResults: [],
+    switchEndGame: false,
+    queueContinents: [],
+    switchLoading: true,
+    playerName: '',
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -20,13 +20,11 @@ const usersReducer = (state = initialState, action) => {
         case SET_SAVE_RESULTS:
             postResult(action.results, action.way, action.playerName);
             return state;
-
         case GET_SAVE_RESULTS:
             return {
                 ...state,
                 gameResults: action.gameResults,
             }
-
         case SET_QUEUE_CONTINENTS:
             if (action.queueContinent) {
                 return {
@@ -39,13 +37,12 @@ const usersReducer = (state = initialState, action) => {
                     queueContinents: [],
                 }
             }
-
         case SET_SWITCH_LOADING:
             return {
                 ...state,
                 switchLoading: action.switchLoading,
             }
-            case SET_SWITCH_ENDGAME:
+        case SET_SWITCH_ENDGAME:
             return {
                 ...state,
                 switchEndGame: action.switchEndGame,
@@ -56,7 +53,6 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 playerName: action.playerName,
             }
-
         default:
             return state;
     }
@@ -92,10 +88,8 @@ let postResult = (result, way, playerName) => {
         name: playerName,
     })
         .then(function (response) {
-            //console.log(response.data);
         })
         .catch(function (error) {
-            //console.log(error);
         });
 
 }
