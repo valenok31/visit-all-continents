@@ -1,8 +1,6 @@
 import React from "react";
-import loadingImg from './loading.png'
 import style from "./InputFormPlayerName.module.css"
-import {Form,Field,Formik} from "formik";
-import {setPlayerName} from "../../redux/visitAllContinents_reducer";
+import {Field, Form, Formik} from "formik";
 
 const InputFormPlayerName = (props) => {
         return <>
