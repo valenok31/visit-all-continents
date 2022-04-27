@@ -10,10 +10,11 @@ import HomeNavLink from "../HomeNavLink/HomeNavLink";
 class RecordsCont extends React.Component {
 
     componentDidMount() {
+        debugger
+        const axg = axios.get('https://62617d9673499e9af90d4345.mockapi.io/api/v1/gameResults');
 
         this.props.setSwitchLoading(true);
-        axios.get('https://62617d9673499e9af90d4345.mockapi.io/api/v1/gameResults')
-            .then(response => {
+        axg.then(response => {
                 this.props.getSaveResults(response.data);
                 this.props.setSwitchLoading(false);
             })
