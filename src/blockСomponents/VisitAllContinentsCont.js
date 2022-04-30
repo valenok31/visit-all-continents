@@ -6,7 +6,8 @@ import {
     setPlayerName,
     setQueueContinents,
     setSaveResults,
-    setSwitchEndGame, setSwitchLoading
+    setSwitchEndGame,
+    setSwitchLoading
 } from "../redux/gameManagement_reducer";
 import axios from "axios";
 

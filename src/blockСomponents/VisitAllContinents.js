@@ -3,7 +3,6 @@ import style from "./VisitAllContinents.module.css"
 import worldMap from './../assets/images/worldMap.png'
 import CitiesInGame from "./CitiesInGame/CitiesInGame";
 import ButtonSaveResults from "./ButtonSaveResults/ButtonSaveResults";
-import Records from "./Records/Records";
 import CheckVisitedContinents from "./CheckVisitedContinents/CheckVisitedContinents";
 import HomeNavLink from "./HomeNavLink/HomeNavLink";
 import TotalCost from "./TotalCost/TotalCost";

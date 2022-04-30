@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import style from "../home/home.module.css";
 
 const Error = (props) => {
-    return <div>
+    return <div className={style.main}>
         Error 404!
         <div>
         <NavLink to={'/'} className={style.nLink}>
