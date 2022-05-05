@@ -96,8 +96,6 @@ const VisitAllContinents = (props) => {
             queueContinents={queueContinents}
             resetResults={resetResults}
             setSaveResultsCont={setSaveResultsCont}/>
-
-
     </div>
 }
 
