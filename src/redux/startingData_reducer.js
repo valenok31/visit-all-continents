@@ -541,12 +541,12 @@ let initialState = {
     get paramCity() {
         return this._cityAddParam;
     },
-    getCostCity(thisCity, previousNumberСity) {
-        return this.paramCity[previousNumberСity].cost[thisCity];
+    getCostCity(thisCity, previousNumberCity) {
+        return this.paramCity[previousNumberCity].cost[thisCity];
     },
     getPreviousNumberCity(previousCity) {
         for (let i = 0; i < this.paramCity.length; i++) {
-            if (this.paramCity[i].name == previousCity) {
+            if (this.paramCity[i].name === previousCity) {
                 return i;
             }
         }
